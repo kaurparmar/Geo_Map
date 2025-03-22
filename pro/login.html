@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Map Reference - Login</title>
+    <link href="/src/output.css" rel="stylesheet">
+</head>
+<style>
+    /* Custom selection styles */
+    ::selection {
+        background-color: rgba(49, 171, 25, 0.473); 
+        color: #000000;
+    }
+
+  
+    
+</style>
+<body class=" flex justify-center items-center h-screen bg-[url('/pro/loginbg.png')] bg-cover">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Geo Map Reference Login</h2>
+
+        <!-- Login Form -->
+        <form action="#" method="POST">
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="email" name="email" required class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="Enter your email">
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="Enter your password">
+            </div>
+
+            <div class="mb-6 flex items-center justify-between">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                    <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+                </div>
+                <a href="forgot.html" class="text-sm text-green-600 hover:text-green-800">Forgot Password?</a>
+            </div>
+            
+            <button type="submit" class="w-full bg-green-600 text-white p-2 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500" >
+                Login
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">Don't have an account? <a href="signup.html" class="text-emerald-600 hover:text-green-800">Sign up</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Website</title>
+  <link href="/src/output.css" rel="stylesheet">
+</head>
+<body class="font-sans">
+  <!-- Fixed Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full bg-blue-800/80 text-white shadow-lg z-50">
+    <div class="container mx-auto px-6 py-3">
+    
+    <details class="md:hidden">
+    <summary class="text-lg font-bold cursor-pointer list-none ">MyWebsite</summary>
+      
+      <ul class="md:hidden space-x-4 mt-2">
+        <li><a href="#Home" class="block hover:text-blue-200 py-2">Home</a></li>
+        <li><a href="#About" class="block hover:text-blue-200 py-2">About</a></li>
+        <li><a href="#Services" class="block hover:text-blue-200 py-2">Services</a></li>
+        <li><a href="#Contact" class="block hover:text-blue-200 py-2">Contact</a></li>
+      </ul>
+    </details>
+    
+        <div class=" hidden md:flex md:justify-between md:items-center">
+
+        <div class="text-lg  font-bold cursor-pointer  md:cursor-default">MyWebsite</div>
+      
+
+      <ul class="flex space-x-4">
+        <li><a href="#" class="hover:text-blue-200">Home</a></li>
+        <li><a href="#" class="hover:text-blue-200">About</a></li>
+        <li><a href="#" class="hover:text-blue-200">Services</a></li>
+        <li><a href="#" class="hover:text-blue-200">Contact</a></li>
+      </ul>
+    </div>
+   
+  </nav>
+
+  <!-- Full-width Image with Text and Button -->
+  <div class="relative mt-14" id="Home">
+    <img src="/pro/image.png" alt="Hero Image" class="w-full h-[50vh]">
+    <div class="absolute inset-0 flex flex-col justify-center items-center bg-gray-600/0 bg-opacity-50 text-white">
+      <h1 class="text-4xl font-bold mb-4">Welcome to MyWebsite</h1>
+      <p class="text-lg mb-6">Your one-stop solution for all your needs.</p>
+      <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Get Started</a>
+    </div>
+  </div>
+
+  <!-- Three Div Sections -->
+  <div class="container mx-auto px-4 py-12 " id="About">
+    <div class="flex flex-col md:flex-row gap-8 ">
+      <div class=" bg-gray-100 p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-3">Section 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel justo vitae magna fermentum tincidunt.</p>
+      </div>
+      <div class=" bg-gray-100 p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-3">Section 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel justo vitae magna fermentum tincidunt.</p>
+      </div>
+      <div class=" bg-gray-100 p-6 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold mb-3">Section 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel justo vitae magna fermentum tincidunt.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional Features -->
+  <div class="bg-gray-200 py-12 ">
+    <div class="container mx-auto px-4 ">
+      <h2 class="text-3xl font-bold text-center mb-8">Why Choose Us?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-3">Feature 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-3">Feature 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="text-center">
+          <h3 class="text-xl font-bold mb-3">Feature 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white py-6">
+    <div class="container mx-auto  text-center">
+      <p>&copy; 2023 MyWebsite. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburger Menu (No JavaScript)</title>
+  <link href="/src/output.css" rel="stylesheet">
+</head>
+<body class="font-sans">
+  <!-- Navigation Bar -->
+  <nav class="bg-blue-600 text-white shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Logo as Summary (Clickable to Toggle Menu) -->
+      <details class="md:hidden">
+        <summary class="text-lg font-bold cursor-pointer list-none ">MyWebsite</summary>
+        <!-- Mobile Menu -->
+        <div class="mt-2 bg-blue-600">
+          <a href="#" class="block py-2 px-4 hover:bg-blue-700">Home</a>
+          <a href="#" class="block py-2 px-4 hover:bg-blue-700">About</a>
+          <a href="#" class="block py-2 px-4 hover:bg-blue-700">Services</a>
+          <a href="#" class="block py-2 px-4 hover:bg-blue-700">Contact</a>
+        </div>
+      </details>
+
+      <!-- Navigation Links (Visible on Medium Screens and Above) -->
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="hover:text-blue-200">Home</a>
+        <a href="#" class="hover:text-blue-200">About</a>
+        <a href="#" class="hover:text-blue-200">Services</a>
+        <a href="#" class="hover:text-blue-200">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Rest of the Content -->
+  <div class="mt-16 p-4">
+    <h1 class="text-2xl font-bold">Welcome to MyWebsite</h1>
+    <p class="mt-2">This is a simple example of a responsive navigation bar with a hamburger menu that works without JavaScript.</p>
+  </div>
+</body>
+</html>
