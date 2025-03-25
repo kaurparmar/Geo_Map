@@ -18,7 +18,7 @@
         <button onclick="getCurrentLocation()" class="px-6 py-3 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition">Get Current Location</button>
     </div>
     
-    <form id="routeForm" class="absolute bottom-24 left-1/2 transform -translate-x-1/2 bg-white p-6 rounded-lg shadow-lg hidden z-50">
+    <form id="routeForm" class="absolute bottom-24 left-1/2 transform -translate-x-1/2 bg-white p-6 rounded-lg shadow-lg hidden z-50" onsubmit="event.preventDefault(); getDirections();">
         <input type="text" id="start" placeholder="Enter starting location" required class="border p-3 rounded w-full mb-3">
         <input type="text" id="end" placeholder="Enter destination" required class="border p-3 rounded w-full mb-3">
         <button type="submit" class="w-full bg-blue-600 text-white px-4 py-3 rounded hover:bg-blue-700 transition">Get Directions</button>
@@ -35,20 +35,18 @@
             document.getElementById('routeForm').classList.toggle('hidden');
         }
 
-        function getLatLng(place) {
-            return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${place}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.length === 0) {
-                        alert("Location not found");
-                        return null;
-                    }
-                    return {
-                        lat: parseFloat(data[0].lat),
-                        lon: parseFloat(data[0].lon),
-                        address: data[0].display_name
-                    };
-                });
+        async function getLatLng(place) {
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${place}`);
+            const data = await response.json();
+            if (data.length === 0) {
+                alert("Location not found");
+                return null;
+            }
+            return {
+                lat: parseFloat(data[0].lat),
+                lon: parseFloat(data[0].lon),
+                address: data[0].display_name
+            };
         }
 
         async function getDirections() {
@@ -70,9 +68,9 @@
             }).addTo(map);
             
             L.marker([startLoc.lat, startLoc.lon]).addTo(map)
-                .bindPopup(`<b>Start:</b> ${startLoc.address}`).openPopup();
+                .bindPopup(`<b>Start:</b> ${startLoc.address}<br>Lat: ${startLoc.lat}, Lon: ${startLoc.lon}`).openPopup();
             L.marker([endLoc.lat, endLoc.lon]).addTo(map)
-                .bindPopup(`<b>End:</b> ${endLoc.address}`).openPopup();
+                .bindPopup(`<b>End:</b> ${endLoc.address}<br>Lat: ${endLoc.lat}, Lon: ${endLoc.lon}`).openPopup();
             
             document.getElementById('routeForm').classList.add('hidden');
         }
@@ -81,7 +79,7 @@
             navigator.geolocation.getCurrentPosition((position) => {
                 const loc = [position.coords.latitude, position.coords.longitude];
                 map.setView(loc, 14);
-                L.marker(loc).addTo(map).bindPopup("You are here").openPopup();
+                L.marker(loc).addTo(map).bindPopup(`You are here<br>Lat: ${loc[0]}, Lon: ${loc[1]}`).openPopup();
             }, () => {
                 alert("Unable to retrieve location");
             });
