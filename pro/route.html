@@ -3,9 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Leaflet Map with Routing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 </head>
 <body>
+    <div id="map" class="h-screen w-screen relative z-0"></div>
     
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-50">
+        <button onclick="toggleForm()" class="px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition">Directions</button>
+        <button onclick="getCurrentLocation()" class="px-6 py-3 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition">Get Current Location</button>
+    </div>
+    
+    <form id="routeForm" class="absolute bottom-24 left-1/2 transform -translate-x-1/2 bg-white p-6 rounded-lg shadow-lg hidden z-50">
+        <input type="text" id="start" placeholder="Enter starting location" required class="border p-3 rounded w-full mb-3">
+        <input type="text" id="end" placeholder="Enter destination" required class="border p-3 rounded w-full mb-3">
+        <button type="submit" class="w-full bg-blue-600 text-white px-4 py-3 rounded hover:bg-blue-700 transition">Get Directions</button>
+    </form>
+    
+    <script>
+        let map = L.map('map').setView([21.0000, 78.0000], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        
+        function toggleForm() {
+            document.getElementById('routeForm').classList.toggle('hidden');
+        }
+
+        function getLatLng(place) {
+            return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${place}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length === 0) {
+                        alert("Location not found");
+                        return null;
+                    }
+                    return {
+                        lat: parseFloat(data[0].lat),
+                        lon: parseFloat(data[0].lon),
+                        address: data[0].display_name
+                    };
+                });
+        }
+
+        async function getDirections() {
+            const startPlace = document.getElementById("start").value;
+            const endPlace = document.getElementById("end").value;
+            
+            const startLoc = await getLatLng(startPlace);
+            const endLoc = await getLatLng(endPlace);
+            
+            if (!startLoc || !endLoc) return;
+            
+            map.setView([startLoc.lat, startLoc.lon], 10);
+            
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(startLoc.lat, startLoc.lon),
+                    L.latLng(endLoc.lat, endLoc.lon)
+                ]
+            }).addTo(map);
+            
+            L.marker([startLoc.lat, startLoc.lon]).addTo(map)
+                .bindPopup(`<b>Start:</b> ${startLoc.address}`).openPopup();
+            L.marker([endLoc.lat, endLoc.lon]).addTo(map)
+                .bindPopup(`<b>End:</b> ${endLoc.address}`).openPopup();
+            
+            document.getElementById('routeForm').classList.add('hidden');
+        }
+
+        function getCurrentLocation() {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const loc = [position.coords.latitude, position.coords.longitude];
+                map.setView(loc, 14);
+                L.marker(loc).addTo(map).bindPopup("You are here").openPopup();
+            }, () => {
+                alert("Unable to retrieve location");
+            });
+        }
+    </script>
 </body>
 </html>
