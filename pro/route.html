@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Leaflet Map with Routing</title>
     <link href="/src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -26,8 +26,12 @@
     
     <script>
         // Initialize map
-        let map = L.map('map').setView([21.0000, 78.0000], 5);
+        let map = L.map('map',{ maxBounds: L.latLngBounds(
+        L.latLng(-90, -180),
+        L.latLng(90, 180)
+    ),maxBoundsViscosity: 1.0,bounceAtZoomLimits: false}).setView([21.0000, 78.0000], 5);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            minZoom:1.5,
             maxZoom: 19,
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
