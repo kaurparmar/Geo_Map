@@ -9,10 +9,20 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <!-- links for extra markers -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-extramarkers/dist/css/leaflet.extra-markers.min.css">
+    <script src="https://unpkg.com/leaflet-extramarkers/dist/js/leaflet.extra-markers.min.js"></script>
+
+   
+
 </head>
+
 <body>
     <div id="map" class="h-screen w-screen relative z-0"></div>
-    
+    <div id="search-container" class="absolute top-4 left-14 z-50 w-64">
+        <input type="text" id="search-input" placeholder="Search location..."
+               class="bg-white/80 w-full p-2 border rounded shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+    </div>
     <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-50">
         <button onclick="toggleForm()" class="px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition">Directions</button>
         <button onclick="getCurrentLocation()" class="px-6 py-3 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition">Get Current Location</button>
@@ -25,7 +35,7 @@
     </form>
     
     <script>
-        // Initialize map
+        // Initializes map
         let map = L.map('map',{ maxBounds: L.latLngBounds(
         L.latLng(-90, -180),
         L.latLng(90, 180)
@@ -42,6 +52,56 @@
         let endMarker = null;
         let currentLocationMarker = null;
         
+        let searchMarker = null;
+        
+        // Search location function
+        async function searchLocation() {
+            const query = document.getElementById('search-input').value;
+            if (!query) return;
+            
+            try {
+                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`, {
+                    headers: {
+                        'User-Agent': 'YourAppName' 
+                    }
+                });
+                
+                const data = await response.json();
+                
+                if (data && data.length > 0) {
+                    const result = data[0];
+                    const center = [parseFloat(result.lat), parseFloat(result.lon)];
+                    
+                    // Removes previous search marker if exists
+                    if (searchMarker) map.removeLayer(searchMarker);
+                    
+                    // Adds new marker
+                    
+                    searchMarker = L.marker(center).addTo(map)
+                        .bindPopup(`<b>${result.display_name || 'Location'}</b>`)
+                        .openPopup();
+                    
+                    // Zoom to location
+                    map.setView(center, 14);
+                } else {
+                    alert("Location not found");
+                }
+            } catch (error) {
+                console.error("Search error:", error);
+                alert("Error searching for location");
+            }
+        }
+        
+        // Setup search input event listeners
+        document.getElementById('search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                searchLocation();
+            }
+        });
+
+
+
         // Toggle directions form
         function toggleForm() {
             document.getElementById('routeForm').classList.toggle('hidden');
@@ -51,7 +111,7 @@
         function getLatLng(place) {
             return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(place)}`, {
                 headers: {
-                    'User-Agent': 'YourAppName' // Required by Nominatim
+                    'User-Agent': 'YourAppName'
                 }
             })
             .then(response => {
@@ -87,13 +147,13 @@
             }
             
             try {
-                // Clear previous route if exists
+                // Clears previous route if exists
                 if (routingControl) {
                     map.removeControl(routingControl);
                     removeRoutingPanel();
                 }
                 
-                // Remove previous markers if exist
+                // Removes previous markers if exist
                 if (startMarker) map.removeLayer(startMarker);
                 if (endMarker) map.removeLayer(endMarker);
                 
@@ -102,14 +162,14 @@
                 
                 if (!startLoc || !endLoc) return;
                 
-                // Set view to show both locations
+                // Sets view to show both locations(starting and ending)
                 const bounds = L.latLngBounds(
                     [startLoc.lat, startLoc.lon],
                     [endLoc.lat, endLoc.lon]
                 );
                 map.fitBounds(bounds, { padding: [50, 50] });
                 
-                // Create routing control with OSRM service
+                // Creates routing control with OSRM service
                 routingControl = L.Routing.control({
                     waypoints: [
                         L.latLng(startLoc.lat, startLoc.lon),
@@ -129,17 +189,26 @@
                         styles: [{color: '#3388ff', opacity: 0.7, weight: 5}]
                     }
                 }).addTo(map);
+
                 
-                // Add markers for start and end points
+                // Adds markers for start and end points
                 startMarker = L.marker([startLoc.lat, startLoc.lon]).addTo(map)
                     .bindPopup(`<b>Start:</b> ${startLoc.address}`)
                     .openPopup();
                 
-                endMarker = L.marker([endLoc.lat, endLoc.lon]).addTo(map)
+                    var redIcon = L.icon({
+                        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/marker-shadow.png',
+                        iconSize: [25, 41],      // Same size as green marker
+                        iconAnchor: [12, 41],     // Same anchor point
+                        popupAnchor: [1, -34],    // Same popup position
+                        shadowSize: [41, 41]      // Same shadow size
+                    });
+                endMarker = L.marker([endLoc.lat, endLoc.lon],{icon: redIcon}).addTo(map)
                     .bindPopup(`<b>End:</b> ${endLoc.address}`)
                     .openPopup();
                 
-                // Hide the form
+                // Hides the form
                 document.getElementById('routeForm').classList.add('hidden');
             } catch (error) {
                 console.error("Routing error:", error);
@@ -153,7 +222,7 @@
                 panels[0].remove();
         }
 }
-        // Get current location with improved accuracy
+        // Gives current location with improved accuracy
         function getCurrentLocation() {
             if (!navigator.geolocation) {
                 alert("Geolocation is not supported by your browser");
@@ -166,6 +235,17 @@
                 maximumAge: 0
             };
 
+            // for custom icon
+            var greenIcon = L.icon({
+            iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+});
+
+
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const loc = [position.coords.latitude, position.coords.longitude];
@@ -176,19 +256,19 @@
                         map.removeLayer(currentLocationMarker);
                     }
                     
-                    // Set view to current location
+                    // Sets view to current location
                     map.setView(loc, 16);
                     
-                    // Add accuracy circle
+                    // Adds accuracy circle
                     L.circle(loc, {
                         radius: accuracy,
-                        color: '#3388ff',
-                        fillColor: '#3388ff',
+                        color: '#09a063',
+                        fillColor: '#09a063',
                         fillOpacity: 0.2
                     }).addTo(map);
                     
-                    // Add current location marker
-                    currentLocationMarker = L.marker(loc).addTo(map)
+                    // Adds current location marker
+                    currentLocationMarker = L.marker(loc,{icon: greenIcon}).addTo(map)
                         .bindPopup(`<b>Your Location</b>`)
                         .openPopup();
                 },
@@ -203,6 +283,8 @@
                 },
                 options
             );
+
+
         }
 
         // Prevent form submission
