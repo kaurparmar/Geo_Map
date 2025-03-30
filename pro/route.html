@@ -222,6 +222,7 @@
                 panels[0].remove();
         }
 }
+let accuracyCircle=null;
         // Gives current location with improved accuracy
         function getCurrentLocation() {
             if (!navigator.geolocation) {
@@ -251,16 +252,22 @@
                     const loc = [position.coords.latitude, position.coords.longitude];
                     const accuracy = position.coords.accuracy;
                     
-                    // Remove previous current location marker if exists
+                    // Removes previous current location marker if exists
                     if (currentLocationMarker) {
                         map.removeLayer(currentLocationMarker);
+                       
                     }
-                    
+                    if(accuracyCircle){ 
+                        map.removeLayer(accuracyCircle);
+                        
+
+                    }
+
                     // Sets view to current location
                     map.setView(loc, 16);
-                    
+
                     // Adds accuracy circle
-                    L.circle(loc, {
+                    accuracyCircle=L.circle(loc, {
                         radius: accuracy,
                         color: '#09a063',
                         fillColor: '#09a063',
