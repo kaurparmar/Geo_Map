@@ -138,6 +138,12 @@
 
         // Get directions between two points
         async function getDirections() {
+            const directionsBtn = document.querySelector('[onclick="getDirections()"]');
+    
+            // Disables the button to prevent multiple clicks
+            directionsBtn.disabled = true;
+            directionsBtn.textContent = "Routing...";
+            
             const startPlace = document.getElementById("start").value;
             const endPlace = document.getElementById("end").value;
             
@@ -214,6 +220,11 @@
                 console.error("Routing error:", error);
                 alert("Error calculating route. Please try again.");
             }
+            finally{
+                // Re-enables the button when done
+                directionsBtn.disabled = false;
+                directionsBtn.textContent = "Get Directions";
+            }
         }
         // removing duplicate instruction panels
         function removeRoutingPanel() {
@@ -259,7 +270,6 @@ let accuracyCircle=null;
                     }
                     if(accuracyCircle){ 
                         map.removeLayer(accuracyCircle);
-                        
 
                     }
 
