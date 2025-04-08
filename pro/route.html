@@ -58,29 +58,29 @@
         async function searchLocation() {
             const query = document.getElementById('search-input').value;
             if (!query) return;
-            
+
             try {
                 const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}`, {
                     headers: {
-                        'User-Agent': 'YourAppName' 
+                        'User-Agent': 'YourAppName'
                     }
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (data && data.length > 0) {
                     const result = data[0];
                     const center = [parseFloat(result.lat), parseFloat(result.lon)];
-                    
+
                     // Removes previous search marker if exists
                     if (searchMarker) map.removeLayer(searchMarker);
-                    
+
                     // Adds new marker
-                    
+
                     searchMarker = L.marker(center).addTo(map)
                         .bindPopup(`<b>${result.display_name || 'Location'}</b>`)
                         .openPopup();
-                    
+
                     // Zoom to location
                     map.setView(center, 14);
                 } else {
@@ -91,7 +91,7 @@
                 alert("Error searching for location");
             }
         }
-        
+
         // Setup search input event listeners
         document.getElementById('search-input').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -108,73 +108,117 @@
         }
 
         // Geocoding function to convert address to coordinates
-        function getLatLng(place) {
-            return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(place)}`, {
-                headers: {
-                    'User-Agent': 'YourAppName'
-                }
-            })
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.json();
-            })
-            .then(data => {
-                if (data.length === 0) {
-                    alert("Location not found");
-                    return null;
-                }
-                return {
-                    lat: parseFloat(data[0].lat),
-                    lon: parseFloat(data[0].lon),
-                    address: data[0].display_name
-                };
-            })
-            .catch(error => {
-                console.error('Geocoding error:', error);
-                alert("Error finding location. Please try again.");
+    async function getLatLng(place) {
+        if (place.toLowerCase() === "my location") {
+            if (!navigator.geolocation) {
+                alert("Geolocation is not supported by your browser");
                 return null;
+            }
+
+            const options = {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            };
+
+        try {
+            const position = await new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(resolve, reject, options);
             });
+
+            const loc = {
+                lat: position.coords.latitude,
+                lon: position.coords.longitude,
+                address: "Your current location"
+            };
+
+            return loc;
+
+        } catch (error) {
+            const errorMessages = {
+                1: "Permission denied - please allow location access",
+                2: "Position unavailable - try again later",
+                3: "Request timed out - check your connection"
+            };
+            alert(errorMessages[error.code] || "Unable to retrieve location");
+            return null;
         }
+    } else {
+        // Regular geocoding for the place (if it's not "my location")
+        try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(place)}`, {
+                headers: { 'User-Agent': 'YourAppName' }
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+
+            if (data.length === 0) {
+                alert("Location not found");
+                return null;
+            }
+
+            return {
+                lat: parseFloat(data[0].lat),
+                lon: parseFloat(data[0].lon),
+                address: data[0].display_name
+            };
+
+        } catch (error) {
+            console.error('Geocoding error:', error);
+            alert("Error finding location. Please try again.");
+            return null;
+        }
+    }
+}
+
 
         // Get directions between two points
         async function getDirections() {
             const directionsBtn = document.querySelector('[onclick="getDirections()"]');
-    
+
             // Disables the button to prevent multiple clicks
             directionsBtn.disabled = true;
             directionsBtn.textContent = "Routing...";
-            
+
             const startPlace = document.getElementById("start").value;
             const endPlace = document.getElementById("end").value;
-            
+
             if (!startPlace || !endPlace) {
                 alert("Please enter both start and end locations");
                 return;
             }
-            
+
             try {
                 // Clears previous route if exists
                 if (routingControl) {
                     map.removeControl(routingControl);
                     removeRoutingPanel();
                 }
-                
+
                 // Removes previous markers if exist
                 if (startMarker) map.removeLayer(startMarker);
                 if (endMarker) map.removeLayer(endMarker);
-                
+                // if(startPlace.toLowerCase()==="my location"){
+                   
+               
                 const startLoc = await getLatLng(startPlace);
+                
+
                 const endLoc = await getLatLng(endPlace);
-                
+
                 if (!startLoc || !endLoc) return;
-                
+
                 // Sets view to show both locations(starting and ending)
                 const bounds = L.latLngBounds(
                     [startLoc.lat, startLoc.lon],
                     [endLoc.lat, endLoc.lon]
                 );
                 map.fitBounds(bounds, { padding: [50, 50] });
-                
+
                 // Creates routing control with OSRM service
                 routingControl = L.Routing.control({
                     waypoints: [
@@ -196,24 +240,24 @@
                     }
                 }).addTo(map);
 
-                
+
                 // Adds markers for start and end points
                 startMarker = L.marker([startLoc.lat, startLoc.lon]).addTo(map)
                     .bindPopup(`<b>Start:</b> ${startLoc.address}`)
                     .openPopup();
-                
+
                     var redIcon = L.icon({
                         iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
                         shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/marker-shadow.png',
-                        iconSize: [25, 41],      // Same size as green marker
-                        iconAnchor: [12, 41],     // Same anchor point
-                        popupAnchor: [1, -34],    // Same popup position
-                        shadowSize: [41, 41]      // Same shadow size
+                        iconSize: [25, 41],
+                        iconAnchor: [12, 41],
+                        popupAnchor: [1, -34],
+                        shadowSize: [41, 41]
                     });
                 endMarker = L.marker([endLoc.lat, endLoc.lon],{icon: redIcon}).addTo(map)
                     .bindPopup(`<b>End:</b> ${endLoc.address}`)
                     .openPopup();
-                
+
                 // Hides the form
                 document.getElementById('routeForm').classList.add('hidden');
             } catch (error) {
@@ -262,13 +306,13 @@ let accuracyCircle=null;
                 (position) => {
                     const loc = [position.coords.latitude, position.coords.longitude];
                     const accuracy = position.coords.accuracy;
-                    
+
                     // Removes previous current location marker if exists
                     if (currentLocationMarker) {
                         map.removeLayer(currentLocationMarker);
-                       
+
                     }
-                    if(accuracyCircle){ 
+                    if(accuracyCircle){
                         map.removeLayer(accuracyCircle);
 
                     }
@@ -283,11 +327,13 @@ let accuracyCircle=null;
                         fillColor: '#09a063',
                         fillOpacity: 0.2
                     }).addTo(map);
-                    
+
                     // Adds current location marker
                     currentLocationMarker = L.marker(loc,{icon: greenIcon}).addTo(map)
                         .bindPopup(`<b>Your Location</b>`)
                         .openPopup();
+
+                       
                 },
                 (error) => {
                     console.error("Geolocation error:", error);
