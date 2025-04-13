@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Leaflet Map with Routing</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link href="/src/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"/>
@@ -13,7 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-extramarkers/dist/css/leaflet.extra-markers.min.css">
     <script src="https://unpkg.com/leaflet-extramarkers/dist/js/leaflet.extra-markers.min.js"></script>
 
-   
+
 
 </head>
 
@@ -21,7 +22,7 @@
     <div id="map" class="h-screen w-screen relative z-0"></div>
     <div id="search-container" class="absolute top-4 left-14 z-50 w-64">
         <input type="text" id="search-input" placeholder="Search location..."
-               class="bg-white/80 w-full p-2 border rounded shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        class="bg-white/80 w-full p-2 border rounded shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
     </div>
     <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-50">
         <button onclick="toggleForm()" class="px-6 py-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition">Directions</button>
