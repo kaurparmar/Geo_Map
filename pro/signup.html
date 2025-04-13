@@ -22,13 +22,13 @@
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
         <input type="email" id="email" name="email" required placeholder="Enter your email"
-          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500">
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
       </div>
 
       <div class="mb-6">
         <label for="password" class="block text-sm font-medium text-gray-700">Password <span class="text-red-500">*</span></label>
         <input type="password" id="password" name="password" required placeholder="Enter strong password"
-          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500">
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
       </div>
 <!-- //*A$D%Fertd12 -->
       <button type="submit"
@@ -37,6 +37,11 @@
     <p class="mt-4 text-sm text-center text-gray-800">Already have an account? <a href="login.html" class="text-green-700 hover:underline">Login</a></p>
   </div>
 
+  
+<!-- jquery input box color changed -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  
+  
   <script>
     function validateSignupForm() {
       const password = document.getElementById('password').value;
@@ -48,6 +53,18 @@
       }
       return true;
     }
+
+    $(document).ready(function(){
+      // Change the color of the input box when focused
+      $('#email, #password').focus(function() {
+        $(this).css('background-color', '#ccf1dc');
+      });
+
+      // Reset the color when focus is lost
+      $('#email, #password').blur(function() {
+        $(this).css('background-color', '#eeffef');
+      });
+    })
   </script>
 </body>
 </html>
