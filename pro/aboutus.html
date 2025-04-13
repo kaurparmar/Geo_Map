@@ -5,75 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Geo-Referenced Map Interface</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link rel="stylesheet" href="/src/output.css"> -->
 </head>
-<body class="relative flex flex-col items-center justify-between text-center min-h-screen bg-cover bg-center bg-fixed bg-[url('Geo_Map/pro/image.png')] ">
-    
+<body class="relative flex flex-col items-center justify-between text-center min-h-screen bg-cover bg-center bg-fixed bg-[url('/pro/loginbg.png')]">
 
-    
-    <!-- Dark Overlay -->
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <!-- Dark Overlay for Better Contrast -->
+    <div class="absolute inset-0 bg-black bg-opacity-70"></div>
 
     <!-- Main Content -->
-    <div class="relative z-10 max-w-3xl px-6 py-12 text-white flex-grow">
-        <h1 class="text-6xl font-extrabold text-yellow-400 drop-shadow-lg">About Us</h1>
-        <p class="text-xl mt-4 leading-relaxed font-medium text-gray-200">
-            Welcome to our <span class="font-semibold text-yellow-300">Geo-Referenced Map Interface</span> project! Our platform leverages 
+    <div class="relative z-10 max-w-4xl px-8 py-16 text-amber-50 flex-grow space-y-8">
+        <h1 class="text-6xl font-extrabold drop-shadow-lg text-amber-100">About Us</h1>
+        <p class="text-xl mt-4 leading-relaxed font-medium text-white max-w-3xl mx-auto">
+            Welcome to our <span class="font-semibold text-red-300">Geo-Referenced Map Interface</span> project! Our platform leverages 
             <span class="text-blue-300 font-bold">open-source technologies</span> to create an interactive and dynamic mapping experience.
         </p>
 
-        <h2 class="mt-8 text-4xl font-semibold text-yellow-300 drop-shadow-lg">Our Goal</h2>
-        <p class="mt-2 text-xl leading-relaxed font-medium text-gray-200">
+        <h2 class="text-4xl font-semibold text-amber-300 drop-shadow-lg">Our Goal</h2>
+        <p class="text-xl leading-relaxed font-medium text-white max-w-3xl mx-auto">
             Our mission is to build a user-friendly mapping tool that enables users to 
             visualize geo-referenced data, add markers, and access location-based insights.
         </p>
 
-        <h2 class="mt-8 text-4xl font-semibold text-yellow-300 drop-shadow-lg">Technologies Used</h2>
-        <ul class="list-none mt-4 text-xl font-medium text-gray-200 space-y-2">
-            <li><span class="font-bold text-blue-300">Frontend:</span> HTML, CSS, Tailwind CSS</li>
-            <li><span class="font-bold text-blue-300">Map Integration:</span> Leaflet.js with OpenStreetMap</li>
-            <li><span class="font-bold text-blue-300">Backend:</span> PHP for data handling</li>
-            <li><span class="font-bold text-blue-300">Database:</span> MySQL</li>
+        <h2 class="text-4xl font-semibold text-red-100 drop-shadow-lg">Technologies Used</h2>
+        <ul class="list-none mt-4 text-xl font-medium text-white space-y-2 max-w-3xl mx-auto">
+            <li><span class="font-bold text-amber-200">Frontend:</span> HTML, CSS, Tailwind CSS</li>
+            <li><span class="font-bold text-amber-200">Map Integration:</span> Leaflet.js with OpenStreetMap</li>
+            <li><span class="font-bold text-amber-200">Backend:</span> PHP for data handling</li>
+            <li><span class="font-bold text-amber-200">Database:</span> MySQL</li>
         </ul>
 
-        <h2 class="mt-8 text-4xl font-semibold text-yellow-300 drop-shadow-lg">Why Choose Open Source?</h2>
-        <p class="mt-2 text-xl font-medium text-gray-200">
+        <h2 class="text-4xl font-semibold text-amber-600 drop-shadow-lg">Why Choose Open Source?</h2>
+        <p class="text-xl font-medium text-white max-w-3xl mx-auto">
             We believe in the power of open-source technologies to develop cost-effective, scalable, and accessible solutions.
         </p>
 
         <!-- Team Section -->
-        <div class="mt-12">
-            <h2 class="text-4xl font-bold text-yellow-400 drop-shadow-lg">Meet Our Team</h2>
-            <div class="mt-6 flex justify-center space-x-6">
-                <div class="p-6 bg-white bg-opacity-20 rounded-lg shadow-lg text-center">
-                    <!-- <img src="/" alt="Team Member" class="rounded-full mx-auto"> -->
-                    <h3 class="text-xl font-bold mt-2 text-yellow-300">Member 1</h3>
-                    <p class="text-lg text-gray-200">Lead Developer</p>
+        <div>
+            <h2 class="text-4xl font-bold text-amber-100 drop-shadow-lg">Meet Our Team</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                    <h3 class="text-xl font-bold mt-2 text-green-200">Member 1</h3>
+                    <p class="text-lg text-white">Lead Developer</p>
                 </div>
 
-                <div class="p-6 bg-white bg-opacity-20 rounded-lg shadow-lg text-center">
-                    <!-- <img src="/" alt="Team Member" class="rounded-full mx-auto"> -->
-                    <h3 class="text-xl font-bold mt-2 text-yellow-300">Member 2</h3>
-                    <p class="text-lg text-gray-200">Backend Engineer</p>
+                <!-- Team Member 2 -->
+                <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                    <h3 class="text-xl font-bold mt-2 text-green-200">Member 2</h3>
+                    <p class="text-lg text-white">Backend Engineer</p>
                 </div>
 
-                <div class="p-6 bg-white bg-opacity-20 rounded-lg shadow-lg text-center">
-                    <!-- <img src="/" alt="Team Member" class="rounded-full mx-auto"> -->
-                    <h3 class="text-xl font-bold mt-2 text-yellow-300">Member 3</h3>
-                    <p class="text-lg text-gray-200">Frontend Engineer</p>
+                <!-- Team Member 3 -->
+                <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                    <h3 class="text-xl font-bold mt-2 text-green-200">Member 3</h3>
+                    <p class="text-lg text-white">Frontend Engineer</p>
                 </div>
 
-                <div class="p-4 bg-white bg-opacity-20 rounded-lg shadow-lg text-center">
-                    <!-- <img src="/" alt="Team Member" class="rounded-full mx-auto"> -->
-                    <h3 class="text-xl font-bold mt-2 text-yellow-300">Member 4</h3>
-                    <p class="text-lg text-gray-200">UI/UX Designer</p>
+                <!-- Team Member 4 -->
+                <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                    <h3 class="text-xl font-bold mt-2 text-green-200">Member 4</h3>
+                    <p class="text-lg text-white">UI/UX Designer</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-4 mt-20 w-full">
+    <footer class="bg-[#212121] text-white text-center py-4 mt-20 w-full">
         <p>&copy; 2025 GeoMap Project. All rights reserved.</p>
     </footer>
 
