@@ -12,11 +12,17 @@
         background-color: rgba(49, 171, 25, 0.473); 
         color: #000000;
     }
+
+    /* remember me checkbox color changed */
+
+    input[type="checkbox"]#remember {
+        accent-color: #9ad0b9; /* Or any color from the palette you prefer */
+    }
 </style>
 
 <body class="flex justify-center items-center h-screen bg-[url('../pro/loginbg.png')] bg-cover">
 
-    <div class="bg-[#eeffef] p-8 rounded-lg shadow-lg w-full max-w-sm">
+    <div class="bg-green-50 p-8 rounded-xl shadow-2xl w-full max-w-sm transform transition duration-500 hover:scale-105 hover:shadow-green-700/40">
         <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Geo Map Reference Login</h2>
 
         <!-- Login Form -->
@@ -73,7 +79,11 @@
         </div>
     </div>
 
+    <!-- jquery for changing the color of the input box -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
     <!-- JavaScript for client-side validation -->
+
     <script>
         document.querySelector('form').addEventListener('submit', function(e) {
             const email = document.getElementById('email');
@@ -101,6 +111,23 @@
                 e.preventDefault(); // prevent form from submitting if invalid
             }
         });
+
+
+        // jquery used for changing the color of the input box
+
+        $(document).ready(function(){
+            $('#email').focus(function(){
+                $(this).css('background-color', '#ccf1dc');
+            }).blur(function(){
+                $(this).css('background-color', '#eeffef');
+            });
+
+            $('#password').focus(function(){
+                $(this).css('background-color', '#ccf1dc');
+            }).blur(function(){
+                $(this).css('background-color', '#eeffef');
+            });
+        })
     </script>
 
 </body>
