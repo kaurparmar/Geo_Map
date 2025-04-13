@@ -6,9 +6,17 @@
   <title>Signup - Geo Map Reference</title>
   <!-- <link rel="stylesheet" href="/src/output.css"> -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .background-with-overlay {
+      background-image: linear-gradient(rgba(16, 69, 54, 0.8), rgba(12, 62, 48, 0.8)), url('/pro/loginbg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
 </head>
-<body class="flex justify-center items-center h-screen bg-gray-100">
-  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+<body class="flex justify-center items-center h-screen background-with-overlay">
+  <div class="bg-green-50 p-8 rounded-xl shadow-2xl w-full max-w-sm transform transition duration-500 hover:scale-105 hover:shadow-green-700/40">
     <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Signup</h2>
     <form action="signup.php" method="POST" onsubmit="return validateSignupForm()">
       <div class="mb-4">
@@ -24,9 +32,9 @@
       </div>
 <!-- //*A$D%Fertd12 -->
       <button type="submit"
-        class="w-full bg-green-600 text-white p-2 rounded-md hover:bg-green-700">Sign Up</button>
+        class="w-full bg-green-800 text-white p-2 rounded-md hover:bg-green-700 transition duration-300 hover:shadow-md hover:shadow-green-800/50">Sign Up</button>
     </form>
-    <p class="mt-4 text-sm text-center">Already have an account? <a href="login.html" class="text-green-600 hover:underline">Login</a></p>
+    <p class="mt-4 text-sm text-center text-gray-800">Already have an account? <a href="login.html" class="text-green-700 hover:underline">Login</a></p>
   </div>
 
   <script>
