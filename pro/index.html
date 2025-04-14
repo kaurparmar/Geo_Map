@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geo Map Reference</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="./src/output.css?v=<?php echo time(); ?>">
-=======
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="/src/output.css?v=<?php echo time(); ?>">
     
-    <link href="/src/output.css" rel="stylesheet">
->>>>>>> 40a0885c916ef0e101b34d63e74d907f146cc2bb
+    
 </head>
 <body class="bg-gray-100">
 
@@ -18,14 +16,14 @@
   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
 </svg>
  -->
-    <nav class="bg-white shadow-md">
+    <nav class=" bg-white shadow-md fixed w-full z-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <!-- Logo -->
                 <div class="text-2xl font-bold text-green-600 ">Geo Map Reference</div>
 
                 <!-- Navigation Links -->
-                <div class="flex space-x-8">
+                <div class="hidden md:visible md:flex space-x-8" id="navbar">
                     <a href="#" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
                         Home
                         <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
@@ -50,13 +48,44 @@
                         origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
                     </a>
                 </div>
+                
+                <button id="hamburger" class="md:hidden focus:outline-none cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                      </svg>
+                  </button>
+            </div>
+
+            <div class="w-[60%] h-[100vh] right-0  hidden fixed space-y-8 bg-green bg-green-800 z-100" id="mobile-menu">
+                <div class="w-full h-[10%] bg-green-800/90"></div>
+                <!-- <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
+                origin-left group-hover:h-[3px] group-hover:bg-green-600"></span> -->
+                <a href="#" class=" ml-18 text-center block relative hover:text-green-600  text-white origin-right text-lg font-medium transition group" >
+                    Home
+                    
+                </a>
+                <a href="aboutus.html" class="ml-18 text-center block relative  text-white hover:text-green-600 
+                origin-left text-lg font-medium transition group"  >
+                    About Us
+                   
+                </a>
+                <a href="contactus.html" class="ml-18 text-center block relative  text-white hover:text-green-600 
+                origin-left text-lg font-medium transition group" >
+                    Contact Us
+                    
+                </a>
+                <a href="/pro/Myaccount.html" class="ml-18 text-center block relative  text-white hover:text-green-600 
+                origin-left text-lg font-medium transition group" >
+                    My Account
+                    
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
 
-    
+
 
     <header class="bg-center h-[550px] flex items-center justify-center text-center text-white  
 
@@ -74,12 +103,70 @@
         </div>
     </header>
 
-   <div class="flex gap-6 m-6 p-6 h-[70vh]">
-        <div class="bg-amber-200 rounded-md h-[100%] p-7 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus expedita accusamus quia corporis ducimus qui voluptatum similique provident fugit quos.</div>
-        <div class="bg-amber-200 rounded-md h-[100%] p-7  ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus voluptates reiciendis, commodi fugit amet tempora placeat odit culpa accusantium quod.</div>
-        <div class="bg-amber-200 rounded-md h-[100%] p-7  ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente hic eveniet in eaque dolorum mollitia iste alias rem possimus earum.</div>
-        <div class="bg-amber-200 rounded-md h-[100%] p-7  ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, alias sapiente quisquam suscipit molestiae quam! Dicta, doloribus itaque. Ullam, maiores.</div>
+    <div class="flex md:flex-row flex-col gap-6 m-6 p-6 md:h-[70vh] h-[100vh]">
+        <!-- Card 1 -->
+        <div class="flip-card md:w-[25%] w-full h-[100vh] md:h-full [perspective:1000px] z-40">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-600 [transform-style:preserve-3d]">
+                <div class="flip-card-front absolute w-full h-full bg-green-500/80 rounded-md p-7 backface-hidden">
+                    Lorem elit. Minus expedita accusamus quia corporis ducimus qui voluptatum similique provident fugit quos.
+                </div>
+                <div class="flip-card-back absolute w-full h-full bg-blue-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
+                    Hidden message 1
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card md:w-[25%] w-full h-[100vh] md:h-full [perspective:1000px] z-40">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-600 [transform-style:preserve-3d]">
+                <div class="flip-card-front absolute w-full h-full bg-green-500/80 rounded-md p-7 backface-hidden">
+                    Lorem elit. Minus expedita accusamus quia corporis ducimus qui voluptatum similique provident fugit quos.
+                </div>
+                <div class="flip-card-back absolute w-full h-full bg-blue-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
+                    Hidden message 1
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Card 2 -->
+        <div class="flip-card md:w-[25%] w-full h-[100vh] md:h-full [perspective:1000px] z-40">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-600 [transform-style:preserve-3d]">
+                <div class="flip-card-front absolute w-full h-full bg-green-500/80 rounded-md p-7 backface-hidden">
+                    Lorem ipsum dolor, sit uptates reiciendis, commodi fugit amet tempora placeat odit culpa accusantium quod.
+                </div>
+                <div class="flip-card-back absolute w-full h-full bg-blue-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
+                    Hidden message 2
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="flip-card md:w-[25%] w-full h-[100vh] md:h-full [perspective:1000px] z-40">
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-600 [transform-style:preserve-3d]">
+                <div class="flip-card-front absolute w-full h-full bg-green-500/80 rounded-md p-7 backface-hidden">
+                    Lorem ipsum dolor sit amet et in eaque dolorum mollitia iste alias rem possimus earum.
+                </div>
+                <div class="flip-card-back absolute w-full h-full bg-blue-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
+                    Hidden message 3
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden'); // Toggle visibility
+            });
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.querySelector('.flip-card-inner').style.transform = 'rotateY(0)';
+            });
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white text-center py-6">
