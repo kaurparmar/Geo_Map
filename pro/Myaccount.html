@@ -8,7 +8,7 @@
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <link rel="stylesheet" href="../src/output.css?v=<?= time() ?>">
 </head>
-<body class="bg-[url('/pro/loginbg.png')] bg-cover bg-center bg-no-repeat text-gray-800 font-sans">
+<body class="bg-[url('../pro/loginbg.png')] bg-cover bg-center bg-no-repeat text-gray-800 font-sans">
 
   <!-- Navigation Bar -->
   <nav class=" bg-amber-100 shadow-md fixed top-0 w-full z-100">
@@ -109,7 +109,7 @@
     <!-- Change Email -->
     <div class="mt-6">
       <label class="block text-sm font-medium text-gray-600 mb-1">Change Email</label>
-      <input type="email" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="Enter new email" required />
+      <input type="email" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="Enter new email" required  id="changeemail"/>
       <button class="mt-3 w-full bg-green-800 hover:bg-green-700 text-white py-2 rounded transition">
         Update Email
       </button>
@@ -118,7 +118,7 @@
     <!-- Change Password -->
     <div class="mt-6">
       <label class="block text-sm font-medium text-gray-600 mb-1">Change Password</label>
-      <input type="password" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="Enter new password" required />
+      <input type="password" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="Enter new password" required id="changepassword"/>
       <button class="mt-3 w-full bg-green-800 hover:bg-green-700 text-white py-2 rounded transition">
         Reset Password
       </button>
@@ -143,6 +143,7 @@
   <footer class="bg-gray-900 text-white text-center py-6 mt-10 bg-opacity-90">
     <p>&copy; 2025 Geo Map Reference. All Rights Reserved.</p>
   </footer>
+<<<<<<< HEAD
   <script>
     document.getElementById('hamburger').addEventListener('click', function() {
         const mobileMenu = document.getElementById('mobile-menu');
@@ -152,6 +153,27 @@
         const cross = document.getElementById('hamcross');
         cross.classList.toggle('hidden');
         });
+=======
+<!-- jquery input box color changed -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#changeemail').focus(function() {
+            $(this).css('background-color', '#ccf1dc');
+        }).blur(function() {
+            $(this).css('background-color', '#eeffef');
+        });
+
+        $('#changepassword').focus(function() {
+            $(this).css('background-color', '#ccf1dc');
+        }).blur(function() {
+            $(this).css('background-color', '#eeffef');
+        });
+    });
+  </script>
+>>>>>>> 8711c388e6865bb07db6fd59dd65e78aefb80597
 
 
     document.getElementById('hamcross').addEventListener('click', function() {
