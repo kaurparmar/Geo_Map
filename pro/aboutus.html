@@ -6,64 +6,135 @@
     <title>About Us - Geo-Referenced Map Interface</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="relative flex flex-col items-center justify-between text-center min-h-screen bg-cover bg-center bg-fixed bg-[url('/pro/loginbg.png')]">
+<body class="relative">
 
-    <!-- Dark Overlay for Better Contrast -->
-    <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+    <nav class="w-[100vw] relative top-0 bg-amber-100 shadow-md z-50">
+        <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="text-2xl font-bold text-green-600">Geo Map Reference</div>
 
-    <!-- Main Content -->
-    <div class="relative z-10 max-w-4xl px-8 py-16 text-amber-50 flex-grow space-y-8">
-        <h1 class="text-6xl font-extrabold drop-shadow-lg text-amber-100">About Us</h1>
-        <p class="text-xl mt-4 leading-relaxed font-medium text-white max-w-3xl mx-auto">
-            Welcome to our <span class="font-semibold text-red-300">Geo-Referenced Map Interface</span> project! Our platform leverages 
-            <span class="text-blue-300 font-bold">open-source technologies</span> to create an interactive and dynamic mapping experience.
-        </p>
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8" id="navbar">
+                    <a href="../pro/index.html" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
+                        Home
+                        <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
+                        origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                    </a>
 
-        <h2 class="text-4xl font-semibold text-amber-300 drop-shadow-lg">Our Goal</h2>
-        <p class="text-xl leading-relaxed font-medium text-white max-w-3xl mx-auto">
-            Our mission is to build a user-friendly mapping tool that enables users to 
-            visualize geo-referenced data, add markers, and access location-based insights.
-        </p>
+                    <a href="../pro/route.html" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
+                        Explore Map
+                        <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
+                        origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                    </a>
 
-        <h2 class="text-4xl font-semibold text-red-100 drop-shadow-lg">Technologies Used</h2>
-        <ul class="list-none mt-4 text-xl font-medium text-white space-y-2 max-w-3xl mx-auto">
-            <li><span class="font-bold text-amber-200">Frontend:</span> HTML, CSS, Tailwind CSS</li>
-            <li><span class="font-bold text-amber-200">Map Integration:</span> Leaflet.js with OpenStreetMap</li>
-            <li><span class="font-bold text-amber-200">Backend:</span> PHP for data handling</li>
-            <li><span class="font-bold text-amber-200">Database:</span> MySQL</li>
-        </ul>
-
-        <h2 class="text-4xl font-semibold text-amber-600 drop-shadow-lg">Why Choose Open Source?</h2>
-        <p class="text-xl font-medium text-white max-w-3xl mx-auto">
-            We believe in the power of open-source technologies to develop cost-effective, scalable, and accessible solutions.
-        </p>
-
-        <!-- Team Section -->
-        <div>
-            <h2 class="text-4xl font-bold text-amber-100 drop-shadow-lg">Meet Our Team</h2>
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Team Member 1 -->
-                <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
-                    <h3 class="text-xl font-bold mt-2 text-green-200">Member 1</h3>
-                    <p class="text-lg text-white">Lead Developer</p>
+                    <a href="../pro/aboutus.html" class="relative text-gray-700 hover:text-green-600 
+                    text-lg font-medium transition group">
+                        About Us
+                        <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
+                        origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                    </a>
+                    <a href="../pro/contactus.html" class="relative text-gray-700 hover:text-green-600 
+                    text-lg font-medium transition group">
+                        Contact Us
+                        <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
+                        origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                    </a>
+                    <a href="../pro/Myaccount.html" class="relative text-gray-700 hover:text-green-600 
+                    text-lg font-medium transition group">
+                        My Account
+                        <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
+                        origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                    </a>
                 </div>
+                
+                <button id="hamburger" class="md:hidden focus:outline-none cursor-pointer">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                      </svg>
+                  </button>
 
-                <!-- Team Member 2 -->
-                <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
-                    <h3 class="text-xl font-bold mt-2 text-green-200">Member 2</h3>
-                    <p class="text-lg text-white">Backend Engineer</p>
-                </div>
+                  <button id="hamcross" class="md:hidden hidden focus:outline-none cursor-pointer">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                  </button>
+            </div>
+        </div>
+    </nav>
 
-                <!-- Team Member 3 -->
-                <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
-                    <h3 class="text-xl font-bold mt-2 text-green-200">Member 3</h3>
-                    <p class="text-lg text-white">Frontend Engineer</p>
-                </div>
+    
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden">
+        <div class="absolute inset-0 bg-black/30" id="mobile-menu-overlay"></div>
+        <div class="absolute right-0 w-64 h-full bg-green-800 text-amber-100 shadow-lg">
+            <div class="w-full h-[10%]"></div>
+            <a href="../pro/index.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">Home</a>
+            <a href="../pro/route.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">Explore Map</a>
+            <a href="../pro/aboutus.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">About Us</a>
+            <a href="../pro/contactus.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">Contact Us</a>
+            <a href="../pro/Myaccount.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">My Account</a>
+        </div>
+    </div>
 
-                <!-- Team Member 4 -->
-                <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
-                    <h3 class="text-xl font-bold mt-2 text-green-200">Member 4</h3>
-                    <p class="text-lg text-white">UI/UX Designer</p>
+    <div class="w-[100vw] relative flex flex-col items-center justify-between text-center min-h-screen bg-cover bg-center bg-fixed bg-[url('/pro/loginbg.png')]">
+        <!-- Dark Overlay for Better Contrast -->
+        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+
+        <!-- Main Content -->
+        <div class="relative z-10 max-w-4xl px-8 py-16 text-amber-50 flex-grow space-y-8">
+            <h1 class="text-6xl font-extrabold drop-shadow-lg text-amber-100">About Us</h1>
+            <p class="text-xl mt-4 leading-relaxed font-medium text-white max-w-3xl mx-auto">
+                Welcome to our <span class="font-semibold text-red-300">Geo-Referenced Map Interface</span> project! Our platform leverages 
+                <span class="text-blue-300 font-bold">open-source technologies</span> to create an interactive and dynamic mapping experience.
+            </p>
+
+            <h2 class="text-4xl font-semibold text-amber-300 drop-shadow-lg">Our Goal</h2>
+            <p class="text-xl leading-relaxed font-medium text-white max-w-3xl mx-auto">
+                Our mission is to build a user-friendly mapping tool that enables users to 
+                visualize geo-referenced data, add markers, and access location-based insights.
+            </p>
+
+            <h2 class="text-4xl font-semibold text-red-100 drop-shadow-lg">Technologies Used</h2>
+            <ul class="list-none mt-4 text-xl font-medium text-white space-y-2 max-w-3xl mx-auto">
+                <li><span class="font-bold text-amber-200">Frontend:</span> HTML, CSS, Tailwind CSS</li>
+                <li><span class="font-bold text-amber-200">Map Integration:</span> Leaflet.js with OpenStreetMap</li>
+                <li><span class="font-bold text-amber-200">Backend:</span> PHP for data handling</li>
+                <li><span class="font-bold text-amber-200">Database:</span> MySQL</li>
+            </ul>
+
+            <h2 class="text-4xl font-semibold text-amber-600 drop-shadow-lg">Why Choose Open Source?</h2>
+            <p class="text-xl font-medium text-white max-w-3xl mx-auto">
+                We believe in the power of open-source technologies to develop cost-effective, scalable, and accessible solutions.
+            </p>
+
+            <!-- Team Section -->
+            <div>
+                <h2 class="text-4xl font-bold text-amber-100 drop-shadow-lg">Meet Our Team</h2>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                        <h3 class="text-xl font-bold mt-2 text-green-200">Member 1</h3>
+                        <p class="text-lg text-white">Lead Developer</p>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                        <h3 class="text-xl font-bold mt-2 text-green-200">Member 2</h3>
+                        <p class="text-lg text-white">Backend Engineer</p>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                        <h3 class="text-xl font-bold mt-2 text-green-200">Member 3</h3>
+                        <p class="text-lg text-white">Frontend Engineer</p>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                        <h3 class="text-xl font-bold mt-2 text-green-200">Member 4</h3>
+                        <p class="text-lg text-white">UI/UX Designer</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,5 +145,6 @@
         <p>&copy; 2025 GeoMap Project. All rights reserved.</p>
     </footer>
 
+    <script src="navbar.js"></script>
 </body>
 </html>

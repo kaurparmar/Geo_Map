@@ -5,51 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact us for geo-referenced map interface development using open-source technologies">
     <title>Contact Us - Geo-Referenced Map Interface</title>
-<<<<<<< HEAD
+
     <!-- <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/src/output.css"> -->
     <link rel="stylesheet" href="../src/output.css?v=<?= time() ?>">
-=======
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link rel="stylesheet" href="../src/output.css?v=<?=time()?>">
->>>>>>> 8711c388e6865bb07db6fd59dd65e78aefb80597
-</head>
-<body class="font-sans bg-[url('../pro/loginbg.png')] bg-cover bg-center text-gray-800">
 
+
+</head>
+<body class="top-0 font-sans bg-[url('../pro/loginbg.png')] bg-cover bg-center text-gray-800">
+    
     <!-- Navigation Bar -->
-    <nav class=" bg-amber-100 shadow-md fixed top-0 w-full z-100">
-        <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="top-0 bg-amber-100 shadow-md fixed w-full z-100">
+        <div class=" w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <!-- Logo -->
                 <div class="text-2xl font-bold text-green-600 ">Geo Map Reference</div>
-    
+
                 <!-- Navigation Links -->
                 <div class="hidden md:visible md:flex space-x-8" id="navbar">
-                    <a href="#" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
+                    <a href="../pro/index.html" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
                         Home
                         <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
                         origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
                     </a>
-    
-                    <a href="route.html" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
+
+                    <a href="../pro/route.html" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
                         Explore Map
                         <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
                         origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
                     </a>
-    
-                    <a href="aboutus.html" class="relative text-gray-700 hover:text-green-600 
+
+                    <a href="../pro/aboutus.html" class="relative text-gray-700 hover:text-green-600 
                     text-lg font-medium transition group">
                         About Us
                         <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
                         origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
                     </a>
-                    <a href="contactus.html" class="relative text-gray-700 hover:text-green-600 
+                    <a href="../pro/contactus.html" class="relative text-gray-700 hover:text-green-600 
                     text-lg font-medium transition group">
                         Contact Us
                         <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
                         origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
                     </a>
-                    <a href="/pro/Myaccount.html" class="relative text-gray-700 hover:text-green-600 
+                    <a href="../pro/Myaccount.html" class="relative text-gray-700 hover:text-green-600 
                     text-lg font-medium transition group">
                         My Account
                         <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
@@ -62,7 +60,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                       </svg>
                   </button>
-    
+
                   <button  id="hamcross" class="md:hidden hidden focus:outline-none cursor-pointer z-100 ">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -70,45 +68,45 @@
                       </svg>
                   </button>
             </div>
-            <div class="w-[100vw] h-[100vh] hidden md:hidden bg-amber-100/20 flex justify-center" id="mobile-menu">
-            <div class="w-40 h-[100vh]  md:hidden fixed space-y-8 z-100" >
+            </div>
+            <div class="bg-black/30  w-full fixed h-full hidden md:hidden"  id="mobile-menu">
+            <div class="w-50 right-0  shadow-amber-100 h-full md:hidden bg-green-800 text-amber-100 fixed space-y-8 z-100">
                 
-                <!-- <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
-                origin-left group-hover:h-[3px] group-hover:bg-green-600"></span> 
-                  -->
+                
                 <div class="w-full h-[10%] "></div>
-                <a href="#" class="text-xl text-center block relative hover:text-amber-600  text-green-600 origin-right font-medium " >
+                <a href="../pro/index.html" class="text-xl text-center block relative hover:text-amber-500   origin-right font-medium " >
                     Home
                     
                 </a>
                 
-                <a href="route.html" class="text-xl  text-center block relative hover:text-amber-600  text-green-600 origin-right font-medium " >
+                <a href="../pro/route.html" class="text-xl  text-center block relative hover:text-amber-500   origin-right font-medium " >
                     Explore Map
                     
                 </a>
-    
-                <a href="aboutus.html" class=" text-center block relative  text-green-600 hover:text-amber-600 
+
+                <a href="../pro/aboutus.html" class=" text-center block relative hover:text-amber-500 
                 origin-left text-xl font-medium "  >
                     About Us
                    
                 </a>
-                <a href="contactus.html" class=" text-center block relative  text-green-600 hover:text-amber-600 
+                <a href="../pro/contactus.html" class=" text-center block relative  hover:text-amber-500 
                 origin-left text-xl font-medium " >
                     Contact Us
                     
                 </a>
-                <a href="/pro/Myaccount.html" class=" text-center block relative  text-green-600 hover:text-amber-600 
+                <a href="../pro/Myaccount.html" class=" text-center block relative  hover:text-amber-500 
                 origin-left text-xl font-medium " >
                     My Account
                     
                 </a>
-            </div>
+
         </div>
         </div>
     </nav>
 
+
     <!-- Contact Form Section -->
-    <section class="bg-white bg-opacity-90 py-12 mt-6 rounded-md max-w-screen-lg mx-auto px-6">
+    <section class="mt-20 bg-green-50/90 py-12 rounded-md max-w-screen-lg mx-auto px-6 w-[80%]">
         <h1 class="text-3xl font-semibold mb-4">Contact Us</h1>
         <p class="text-lg mb-8">If you're interested in developing a geo-referenced map interface or have any inquiries about our open-source technologies, feel free to reach out to us. We're happy to assist you with your project!</p>
 
@@ -140,29 +138,10 @@
     <footer class="bg-gray-800 text-white py-4 text-center mt-12 bg-opacity-90">
         <p>&copy; 2025 Geo Tech Maps. All rights reserved.</p>
     </footer>
-<<<<<<< HEAD
-    <script>
-        document.getElementById('hamburger').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden'); // Toggle visibility
-            
-            this.classList.toggle('hidden');
-            const cross = document.getElementById('hamcross');
-            cross.classList.toggle('hidden');
-            });
-    
-    
-        document.getElementById('hamcross').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden'); // Toggle visibility
-            
-            this.classList.toggle('hidden');
-            const cross = document.getElementById('hamburger');
-            cross.classList.toggle('hidden');
-            });
-        
-    </script>
-=======
+
+
+    <script src="../pro/navbar.js"></script>
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
@@ -187,6 +166,6 @@
         });
     </script>
 
->>>>>>> 8711c388e6865bb07db6fd59dd65e78aefb80597
+
 </body>
 </html>
