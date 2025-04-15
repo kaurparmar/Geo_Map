@@ -14,9 +14,8 @@
     }
 
     /* remember me checkbox color changed */
-
     input[type="checkbox"]#remember {
-        accent-color: #9ad0b9; /* Or any color from the palette you prefer */
+        accent-color: #9ad0b9;
     }
 </style>
 
@@ -32,7 +31,7 @@
                 <label for="email" class="block text-sm font-medium text-gray-700">
                     Email Address <span class="text-red-500">*</span>
                 </label>
-                <input type="email" id="email" name="email" required
+                <input type="email" id="email" name="email" required  
                     class="bg-[#eeffef] mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
                     placeholder="Enter your email">
                 <p class="mt-1 text-xs text-red-500 hidden" id="emailError">Email is required.</p>
@@ -83,7 +82,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <!-- JavaScript for client-side validation -->
-
     <script>
         document.querySelector('form').addEventListener('submit', function(e) {
             const email = document.getElementById('email');
@@ -112,9 +110,7 @@
             }
         });
 
-
         // jquery used for changing the color of the input box
-
         $(document).ready(function(){
             $('#email').focus(function(){
                 $(this).css('background-color', '#ccf1dc');
@@ -127,7 +123,31 @@
             }).blur(function(){
                 $(this).css('background-color', '#eeffef');
             });
-        })
+        });
+
+        // Remember Me using cookies (Auto-fill email)
+        window.onload = function() {
+            const savedEmail = getCookie('remembered_email');
+            if (savedEmail) {
+                document.getElementById('email').value = savedEmail;
+                document.getElementById('remember').checked = true;
+            }
+        };
+
+        document.querySelector('form').addEventListener('submit', function () {
+            const remember = document.getElementById('remember').checked;
+            if (remember) {
+                document.cookie = "remembered_email=" + document.getElementById('email').value + "; max-age=604800; path=/";
+            } else {
+                document.cookie = "remembered_email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            }
+        });
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
     </script>
 
 </body>
