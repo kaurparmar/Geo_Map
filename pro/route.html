@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../src/output.css?v=<?= time() ?>">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link href="/src/output.css" rel="stylesheet"> -->
+    
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"/>
@@ -19,13 +19,48 @@
     <!-- links for extra markers -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet-extramarkers/dist/css/leaflet.extra-markers.min.css">
     <script src="https://unpkg.com/leaflet-extramarkers/dist/js/leaflet.extra-markers.min.js"></script>
-
-
-
 </head>
 
 <body>
-    <div id="map" class="h-screen w-screen relative z-0"></div>
+   
+    <div id="map" class="top-0 h-screen w-screen relative z-0"></div>
+    
+        <button id="hamburger" class="absolute top-4 right-4  focus:outline-none cursor-pointer z-50 p-2 rounded-full bg-amber-300 hover:bg-amber-400 transition-colors ml-auto">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+        
+        <button id="hamcross" class="absolute top-4 right-4  hidden focus:outline-none cursor-pointer z-50 p-2 rounded-full bg-amber-300 hover:bg-amber-400 transition-colors">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <div class=" bg-black/40 w-full fixed h-full hidden z-40" id="mobile-menu">
+            <div class="w-64 right-0 top-0 shadow-amber-100 h-full bg-green-800 text-amber-100 fixed space-y-8 z-50">
+                <div class="w-full h-[10%]"></div>
+                <a href="../pro/index.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">
+                    Home
+                </a>
+                <a href="../pro/route.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">
+                    Explore Map
+                </a>
+                <a href="../pro/aboutus.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">
+                    About Us
+                </a>
+                <a href="../pro/contactus.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">
+                    Contact Us
+                </a>
+                <a href="../pro/Myaccount.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">
+                    My Account
+                </a>
+            </div>
+            <div>
+        </div>
+    
+    
     <div id="search-container" class="absolute top-4 left-14 z-50 w-64">
         <input type="text" id="search-input" placeholder="Search location..."
         class="bg-white/80 w-full p-2 border rounded shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -362,5 +397,7 @@ let accuracyCircle=null;
             e.preventDefault();
         });
     </script>
+
+    <script src="navbar.js"></script>
 </body>
 </html>
