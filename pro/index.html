@@ -5,10 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geo Map Reference</title>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link rel="stylesheet" href="/src/output.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../src/output.css?v=<?= time() ?>">
     
     
 </head>
+<style>
+    
+        ::selection {
+        background-color: rgba(49, 171, 25, 0.473); 
+        color: #000000;
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-1rem); }
+    }
+  
+</style>
 <body class="bg-gray-100">
 
     <!-- Navigation Bar -->
@@ -16,8 +32,8 @@
   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
 </svg>
  -->
-    <nav class=" bg-white shadow-md fixed w-full z-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class=" bg-amber-100 shadow-md fixed w-full z-100">
+        <div class=" w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <!-- Logo -->
                 <div class="text-2xl font-bold text-green-600 ">Geo Map Reference</div>
@@ -29,6 +45,13 @@
                         <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
                         origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
                     </a>
+
+                    <a href="route.html" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
+                        Explore Map
+                        <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
+                        origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                    </a>
+
                     <a href="aboutus.html" class="relative text-gray-700 hover:text-green-600 
                     text-lg font-medium transition group">
                         About Us
@@ -49,37 +72,54 @@
                     </a>
                 </div>
                 
-                <button id="hamburger" class="md:hidden focus:outline-none cursor-pointer">
+                <button id="hamburger" class="md:hidden focus:outline-none cursor-pointer z-100">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                       </svg>
                   </button>
-            </div>
 
-            <div class="w-[60%] h-[100vh] right-0  hidden fixed space-y-8 bg-green bg-green-800 z-100" id="mobile-menu">
-                <div class="w-full h-[10%] bg-green-800/90"></div>
+                  <button  id="hamcross" class="md:hidden hidden focus:outline-none cursor-pointer z-100 ">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                  </button>
+            </div>
+            </div>
+            <div class="bg-black/30  w-full fixed h-full hidden md:hidden"  id="mobile-menu">
+            <div class="w-50 right-0  shadow-amber-100 h-full md:hidden bg-green-800 text-amber-100 fixed space-y-8 z-100">
+                
                 <!-- <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
-                origin-left group-hover:h-[3px] group-hover:bg-green-600"></span> -->
-                <a href="#" class=" ml-18 text-center block relative hover:text-green-600  text-white origin-right text-lg font-medium transition group" >
+                origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                  -->
+                <div class="w-full h-[10%] "></div>
+                <a href="#" class="text-xl text-center block relative hover:text-amber-500   origin-right font-medium " >
                     Home
                     
                 </a>
-                <a href="aboutus.html" class="ml-18 text-center block relative  text-white hover:text-green-600 
-                origin-left text-lg font-medium transition group"  >
+                
+                <a href="route.html" class="text-xl  text-center block relative hover:text-amber-500   origin-right font-medium " >
+                    Explore Map
+                    
+                </a>
+
+                <a href="aboutus.html" class=" text-center block relative hover:text-amber-500 
+                origin-left text-xl font-medium "  >
                     About Us
                    
                 </a>
-                <a href="contactus.html" class="ml-18 text-center block relative  text-white hover:text-green-600 
-                origin-left text-lg font-medium transition group" >
+                <a href="contactus.html" class=" text-center block relative  hover:text-amber-500 
+                origin-left text-xl font-medium " >
                     Contact Us
                     
                 </a>
-                <a href="/pro/Myaccount.html" class="ml-18 text-center block relative  text-white hover:text-green-600 
-                origin-left text-lg font-medium transition group" >
+                <a href="/pro/Myaccount.html" class=" text-center block relative  hover:text-amber-500 
+                origin-left text-xl font-medium " >
                     My Account
                     
                 </a>
-            </div>
+            <!-- </div> -->
+        </div>
         </div>
     </nav>
 
@@ -96,33 +136,108 @@
         <div class="bg-black/50 bg-opacity-50 p-8 rounded-lg">
             <h1 class="text-4xl font-bold">Welcome to Geo Map Reference</h1>
             <p class="mt-2 text-lg">Explore and reference maps with ease.</p>
-            <a href="login.html" class="mt-4 inline-block px-6 py-2 bg-green-600 hover:bg-green-700
+            <a href="route.html" class="mt-4 inline-block px-6 py-2 bg-green-700 hover:bg-green-600
              text-white text-lg rounded transition">
-                Get Started
+                Explore now
             </a>
         </div>
     </header>
 
-    <div class="flex md:flex-row flex-col gap-6 m-6 p-6 md:h-[70vh] h-[100vh]">
+<section class="py-12 px-7 sm:px-6 md:px-8">
+    <div class=" max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <!-- Globe Image (Left) slideUp slideDown slideToggle  <script src="/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            //slideup slidedown slideToggle
+            $('#slideup').click(function(){
+                $('#img1').slideUp(2000);
+            })
+
+            $('#slidedown').click(function(){
+                $('#img1').slideDown(2000);
+            })
+
+            $('#slidetoggle').click(function(){
+                $('#img1').slideToggle(2000);
+            })
+-->
+        <div class="md:w-1/2 w-full flex justify-center md:justify-end">
+          <img 
+            src="globe.gif"
+            alt="Interactive World Map"
+            class="w-full max-w-[480px] h-auto object-contain rounded-lg shadow-xl"
+            loading="lazy"
+            style="aspect-ratio: 1/1; min-height: 300px; max-height: 500px;"
+          >
+        </div>
+  
+        <!-- Content (Right) -->
+        <div class="md:w-1/2 w-full md:pl-8">
+          <h2 class="text-3xl sm:text-4xl font-bold text-green-700 mb-6">
+            Your World, <span class="text-amber-600">Mapped to Perfection</span>
+          </h2>
+          
+          <p class="text-lg text-gray-700 leading-relaxed mb-8">
+            Geo Map Reference combines cutting-edge cartography with intuitive tools to deliver the most precise mapping experience. Navigate with confidence using our constantly updated global database.
+          </p>
+          
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-start">
+              <svg class="flex-shrink-0 w-6 h-6 text-green-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">Real-time location tracking </span>
+            </li>
+            <li class="flex items-start">
+              <svg class="flex-shrink-0 w-6 h-6 text-green-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">Detailed route optimization</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="flex-shrink-0 w-6 h-6 text-green-600 mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-gray-700">Offline access to maps when you need it most</span>
+            </li>
+          </ul>
+          
+          <div class="pt-4 flex flex-col sm:flex-row gap-4">
+            <a href="route.html" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition duration-300 shadow-md hover:shadow-lg text-center">
+              Start Exploring
+            </a>
+            <a href="#information" class="px-6 py-3 border-2 border-green-600 text-green-700 hover:bg-green-50 font-medium rounded-lg transition duration-300 text-center">
+              Learn How It Works
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+    <div class="flex md:flex-row flex-col gap-6 m-6 p-6 md:h-[70vh] h-[100vh] text-white bg-amber-100" id="information">
         <!-- Card 1 -->
         <div class="flip-card md:w-[25%] w-full h-[100vh] md:h-full [perspective:1000px] z-40">
-            <div class="flip-card-inner relative w-full h-full transition-transform duration-600 [transform-style:preserve-3d]">
-                <div class="flip-card-front absolute w-full h-full bg-green-500/80 rounded-md p-7 backface-hidden">
-                    Lorem elit. Minus expedita accusamus quia corporis ducimus qui voluptatum similique provident fugit quos.
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-2000 [transform-style:preserve-3d]">
+                <div class="flip-card-front absolute w-full h-full bg-green-800/80 rounded-md p-7 backface-hidden">
+                    📍 Find Any Place Instantly
                 </div>
-                <div class="flip-card-back absolute w-full h-full bg-blue-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
-                    Hidden message 1
+                <div class="flip-card-back absolute w-full h-full bg-amber-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
+                    Search cities, landmarks, or addresses with pinpoint accuracy.
                 </div>
             </div>
         </div>
 
         <div class="flip-card md:w-[25%] w-full h-[100vh] md:h-full [perspective:1000px] z-40">
-            <div class="flip-card-inner relative w-full h-full transition-transform duration-600 [transform-style:preserve-3d]">
-                <div class="flip-card-front absolute w-full h-full bg-green-500/80 rounded-md p-7 backface-hidden">
-                    Lorem elit. Minus expedita accusamus quia corporis ducimus qui voluptatum similique provident fugit quos.
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-2000 [transform-style:preserve-3d]">
+                <div class="flip-card-front absolute w-full h-full bg-green-800/80 rounded-md p-7 backface-hidden">
+                    🗺️ Optimized Routes, Effortless Travel
                 </div>
-                <div class="flip-card-back absolute w-full h-full bg-blue-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
-                    Hidden message 1
+                <div class="flip-card-back absolute w-full h-full bg-amber-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
+                    Get the fastest path from point A to B—whether driving, walking, or cycling.
                 </div>
             </div>
         </div>
@@ -130,24 +245,25 @@
 
         <!-- Card 2 -->
         <div class="flip-card md:w-[25%] w-full h-[100vh] md:h-full [perspective:1000px] z-40">
-            <div class="flip-card-inner relative w-full h-full transition-transform duration-600 [transform-style:preserve-3d]">
-                <div class="flip-card-front absolute w-full h-full bg-green-500/80 rounded-md p-7 backface-hidden">
-                    Lorem ipsum dolor, sit uptates reiciendis, commodi fugit amet tempora placeat odit culpa accusantium quod.
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-2000 [transform-style:preserve-3d]">
+                <div class="flip-card-front absolute w-full h-full bg-green-800/80 rounded-md p-7 backface-hidden">
+                    🌍 Discover Hidden Gems
                 </div>
-                <div class="flip-card-back absolute w-full h-full bg-blue-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
-                    Hidden message 2
+                <div class="flip-card-back absolute w-full h-full bg-amber-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
+                    Find restaurants, ATMs, gas stations, and attractions near you.
                 </div>
             </div>
         </div>
         
         <!-- Card 3 -->
         <div class="flip-card md:w-[25%] w-full h-[100vh] md:h-full [perspective:1000px] z-40">
-            <div class="flip-card-inner relative w-full h-full transition-transform duration-600 [transform-style:preserve-3d]">
-                <div class="flip-card-front absolute w-full h-full bg-green-500/80 rounded-md p-7 backface-hidden">
-                    Lorem ipsum dolor sit amet et in eaque dolorum mollitia iste alias rem possimus earum.
+            <div class="flip-card-inner relative w-full h-full transition-transform duration-2000 [transform-style:preserve-3d]">
+                <div class="flip-card-front absolute w-full h-full bg-green-800/80 rounded-md p-7 backface-hidden">
+                    ⏰ Time & Distance Estimates
+
                 </div>
-                <div class="flip-card-back absolute w-full h-full bg-blue-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
-                    Hidden message 3
+                <div class="flip-card-back absolute w-full h-full bg-amber-500/80 rounded-md p-7 [transform:rotateY(180deg)] backface-hidden">
+                    See exactly how long your trip will take and the distance you'll cover.
                 </div>
             </div>
         </div>
@@ -157,6 +273,23 @@
         document.getElementById('hamburger').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden'); // Toggle visibility
+            
+            this.classList.toggle('hidden');
+            const cross = document.getElementById('hamcross');
+            cross.classList.toggle('hidden');
+            
+            // const dull = document.getElementById('bgdull');
+            // dull.classList.toggle('hidden');
+            });
+            document.getElementById('hamcross').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden'); // Toggle visibility
+            
+            this.classList.toggle('hidden');
+            const cross = document.getElementById('hamburger');
+            cross.classList.toggle('hidden');
+            // const dull = document.getElementById('bgdull');
+            // dull.classList.toggle('hidden');
             });
         document.querySelectorAll('.flip-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
