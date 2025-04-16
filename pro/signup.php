@@ -45,7 +45,7 @@ try {
     }
 } catch (Exception $e) {
   error_log($e->getMessage());
-  $error_message = urlencode($e->getMessage());
+  $error_message = urlencode("Email already exists. Try using another email.");
   header("Location: signup.html?error=$error_message");
   exit();
 } finally {

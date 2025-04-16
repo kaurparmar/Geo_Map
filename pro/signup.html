@@ -53,7 +53,7 @@
   <script>
     function validateSignupForm() {
       const password = document.getElementById('password').value;
-      const strongPasswordRegex = /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      const strongPasswordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
       if (!strongPasswordRegex.test(password)) {
         alert('Password must be at least 8 characters and include at least one uppercase letter, one number, and one special character.');
