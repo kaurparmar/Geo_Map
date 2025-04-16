@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signup - Geo Map Reference</title>
+  <link rel="stylesheet" href="../src/output.css?v=<?php echo time(); ?>"> 
+  <!-- <link rel="stylesheet" href="/src/output.css"> -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <style>
+    .background-with-overlay {
+      background-image: linear-gradient(rgba(16, 69, 54, 0.8), rgba(12, 62, 48, 0.8)), url('../pro/loginbg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center h-screen background-with-overlay">
+  <div class="bg-green-50 opacity-80 p-8 rounded-xl shadow-2xl w-full max-w-sm transform transition duration-500 hover:scale-105 hover:shadow-green-700/40">
+    <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Signup</h2>
+    <form action="../pro/signup.php" method="POST" onsubmit="return validateSignupForm()">
+      <div id="error-message" class="text-red-500 font-semibold text-center my-4"></div>
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email"
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
+      </div>
+
+      <div class="mb-6">
+        <label for="password" class="block text-sm font-medium text-gray-700">Password <span class="text-red-500">*</span></label>
+        <input type="password" id="password" name="password" required placeholder="Enter strong password"
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
+      </div>
+
+      <div class="mb-6">
+        <label for="secretkey" class="block text-sm font-medium text-gray-700">Secret key <span class="text-red-500">*</span></label>
+        <input type="password" id="secretkey" name="secretkey" required placeholder="Enter strong password"
+          class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500">
+      </div>
+<!-- submit-->
+      <button type="submit"
+        class="w-full bg-green-800 text-white p-2 rounded-md hover:bg-green-700 transition duration-300 hover:shadow-md hover:shadow-green-800/50">Sign Up</button>
+    </form>
+    <p class="mt-4 text-sm text-center text-gray-800">Already have an account? <a href="login.html" class="text-green-700 hover:underline">Login</a></p>
+  </div>
+
+  
+<!-- jquery input box color changed -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  
+  
+  <script>
+    function validateSignupForm() {
+      const password = document.getElementById('password').value;
+      const strongPasswordRegex = /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+      if (!strongPasswordRegex.test(password)) {
+        alert('Password must be at least 8 characters and include at least one uppercase letter, one number, and one special character.');
+        return false;
+      }
+      return true;
+    }
+
+    $(document).ready(function(){
+      // Change the color of the input box when focused
+      $('#email, #password,#secretkey').focus(function() {
+        $(this).css('background-color', '#ccf1dc');
+      });
+
+      // Reset the color when focus is lost
+      $('#email, #password,#secretkey').blur(function() {
+        $(this).css('background-color', '#eeffef');
+      });
+    })
+  </script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get("error");
+    if (error) {
+      document.getElementById("error-message").textContent = decodeURIComponent(error);
+    }
+  </script>
+</body>
+</html>
