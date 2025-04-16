@@ -53,7 +53,7 @@ if ($user && password_verify($pass, $user['password'])) {
         setcookie('remembered_password', $pass, time() + (30 * 24 * 60 * 60), "/"); // 30 days
     }
 
-    header("Location: dashboard.html");
+    header("Location: index.html");
 } else {
     echo "<script>alert('Invalid email or password'); window.location.href = 'login.html';</script>";
 }
