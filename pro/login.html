@@ -62,7 +62,7 @@
                         class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
                     <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
                 </div>
-                <a href="forgot.html" class="text-sm text-green-600 hover:text-green-800">Forgot Password?</a>
+                <a href="../pro/forgot.html" class="text-sm text-green-600 hover:text-green-800">Forgot Password?</a>
             </div>
 
             <!-- Submit -->
@@ -76,7 +76,7 @@
         <div class="mt-6 text-center">
             <p class="text-sm text-gray-600">
                 Don't have an account?
-                <a href="signup.html" class="text-emerald-600 hover:text-green-800">Sign up</a>
+                <a href="../pro/signup.html" class="text-emerald-600 hover:text-green-800">Sign up</a>
             </p>
         </div>
     </div>
@@ -128,12 +128,31 @@
             });
         });
 
-        // Remember Me using cookies (Auto-fill email)
-        window.onload = function () {
-    const savedEmail = decodeURIComponent(getCookie('remembered_email') || "");
-    if (savedEmail) {
-        document.getElementById('email').value = savedEmail;
-        document.getElementById('remember').checked = true;
+        
+document.querySelector('form').addEventListener('submit', function(e) {
+    const remember = document.getElementById('remember').checked;
+    const email = document.getElementById('email').value;
+    
+    if (remember) {
+        // Set cookie for 30 days if "Remember Me" is checked
+        document.cookie = `remembered_email=${encodeURIComponent(email)}; max-age=${30 * 24 * 60 * 60}; path=/`;
+    } else {
+        
+        document.cookie = "remembered_email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+    
+    
+});
+
+
+window.onload = function() {
+    const rememberCheckbox = document.getElementById('remember');
+    const emailInput = document.getElementById('email');
+    const savedEmail = getCookie('remembered_email');
+    
+    if (savedEmail && rememberCheckbox) {
+        emailInput.value = decodeURIComponent(savedEmail);
+        rememberCheckbox.checked = true; 
     }
 };
 
@@ -142,16 +161,6 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
-
-        // document.querySelector('form').addEventListener('submit', function () {
-        //     const remember = document.getElementById('remember').checked;
-        //     if (remember) {
-        //         document.cookie = "remembered_email=" + document.getElementById('email').value + "; max-age=604800; path=/";
-        //     } else {
-        //         document.cookie = "remembered_email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        //     }
-        // });
-
         
     </script>
 

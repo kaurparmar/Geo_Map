@@ -1721,12 +1721,6 @@
   .bg-amber-50 {
     background-color: var(--color-amber-50);
   }
-  .bg-amber-50\/60 {
-    background-color: color-mix(in oklab, var(--color-amber-50) 60%, transparent);
-  }
-  .bg-amber-50\/90 {
-    background-color: color-mix(in oklab, var(--color-amber-50) 90%, transparent);
-  }
   .bg-amber-100 {
     background-color: var(--color-amber-100);
   }
@@ -2076,8 +2070,14 @@
   .align-top {
     vertical-align: top;
   }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
   .font-sans {
     font-family: var(--font-sans);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -2454,8 +2454,62 @@
   .shadow-amber-100 {
     --tw-shadow-color: var(--color-amber-100);
   }
+  .shadow-amber-300 {
+    --tw-shadow-color: var(--color-amber-300);
+  }
+  .shadow-amber-300\/60 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-amber-300) 60%, transparent);
+  }
+  .shadow-amber-300\/70 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-amber-300) 70%, transparent);
+  }
+  .shadow-amber-500 {
+    --tw-shadow-color: var(--color-amber-500);
+  }
+  .shadow-amber-500\/60 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-amber-500) 60%, transparent);
+  }
+  .shadow-amber-500\/80 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-amber-500) 80%, transparent);
+  }
+  .shadow-amber-700 {
+    --tw-shadow-color: var(--color-amber-700);
+  }
+  .shadow-amber-700\/60 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-amber-700) 60%, transparent);
+  }
+  .shadow-green-300 {
+    --tw-shadow-color: var(--color-green-300);
+  }
+  .shadow-green-300\/70 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-green-300) 70%, transparent);
+  }
+  .shadow-green-400 {
+    --tw-shadow-color: var(--color-green-400);
+  }
+  .shadow-green-400\/70 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-green-400) 70%, transparent);
+  }
+  .shadow-green-700 {
+    --tw-shadow-color: var(--color-green-700);
+  }
+  .shadow-green-700\/20 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 20%, transparent);
+  }
+  .shadow-green-700\/30 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 30%, transparent);
+  }
+  .shadow-green-700\/50 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 50%, transparent);
+  }
+  .shadow-green-700\/60 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 60%, transparent);
+  }
   .shadow-initial {
     --tw-shadow-color: initial;
+  }
+  .shadow-purple-700 {
+    --tw-shadow-color: var(--color-purple-700);
   }
   .inset-shadow-initial {
     --tw-inset-shadow-color: initial;
