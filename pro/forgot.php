@@ -13,18 +13,16 @@ $email = $_POST['email'];
 $secret_phrase = $_POST['secret_phrase'];
 
 // Check if user exists
-$sql = "SELECT * FROM users WHERE email=? AND secret_phrase=?";
+$sql = "SELECT secret_phrase FROM users WHERE email=?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $email, $secret_phrase);
+$stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
-$user = $result->fetch_assoc();
 
-if ($user) {
+if (password_verify($secret_phrase, $result)) {
     // You can redirect them to a reset page
-    session_start();
     $_SESSION['reset_email'] = $email;
-    header("Location: reset_password.html");
+    header("Location: resetpassword.html");
 } else {
     echo "<script>alert('Invalid email or secret phrase.'); window.location.href = 'forgot.html';</script>";
 }
