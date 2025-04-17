@@ -1,4 +1,5 @@
 <?php
+session_start();
 $host = "localhost";
 $dbname = "geomap";
 $username = "root";
@@ -19,11 +20,23 @@ $stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if (password_verify($secret_phrase, $result)) {
-    // You can redirect them to a reset page
-    $_SESSION['reset_email'] = $email;
-    header("Location: resetpassword.html");
-} else {
+
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $hashed_phrase = $row['secret_phrase'];
+
+    if (password_verify($secret_phrase, $hashed_phrase)) {
+        // Secret phrase is correct
+        $_SESSION['reset_email'] = $email;
+        header("Location: resetpassword.html");
+        exit;
+    } else {
+        // Invalid secret phrase
+        echo "<script>alert('Invalid email or secret phrase.'); window.location.href = 'forgot.html';</script>";
+    }
+} 
+else {
     echo "<script>alert('Invalid email or secret phrase.'); window.location.href = 'forgot.html';</script>";
 }
 ?>

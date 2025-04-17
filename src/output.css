@@ -605,9 +605,6 @@
   .bottom-24 {
     bottom: calc(var(--spacing) * 24);
   }
-  .left-1 {
-    left: calc(var(--spacing) * 1);
-  }
   .left-1\/2 {
     left: calc(1/2 * 100%);
   }
@@ -896,10 +893,6 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
-  .size-6 {
-    width: calc(var(--spacing) * 6);
-    height: calc(var(--spacing) * 6);
-  }
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -939,9 +932,6 @@
   .min-h-screen {
     min-height: 100vh;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
@@ -956,9 +946,6 @@
   }
   .w-64 {
     width: calc(var(--spacing) * 64);
-  }
-  .w-96 {
-    width: calc(var(--spacing) * 96);
   }
   .w-\[80\%\] {
     width: 80%;
@@ -1085,10 +1072,6 @@
   .translate-full {
     --tw-translate-x: 100%;
     --tw-translate-y: 100%;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-x-1\/2 {
@@ -1730,9 +1713,6 @@
   .bg-amber-300 {
     background-color: var(--color-amber-300);
   }
-  .bg-amber-500 {
-    background-color: var(--color-amber-500);
-  }
   .bg-amber-500\/80 {
     background-color: color-mix(in oklab, var(--color-amber-500) 80%, transparent);
   }
@@ -1822,9 +1802,6 @@
   }
   .bg-\[url\(\'\.\.\/pro\/loginbg\.png\'\)\] {
     background-image: url('../pro/loginbg.png');
-  }
-  .bg-\[url\(\'\/pro\/loginbg\.png\'\)\] {
-    background-image: url('/pro/loginbg.png');
   }
   .bg-none {
     background-image: none;
@@ -2075,9 +2052,6 @@
   }
   .font-sans {
     font-family: var(--font-sans);
-  }
-  .font-serif {
-    font-family: var(--font-serif);
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -2407,8 +2381,11 @@
   .scheme-only-light {
     color-scheme: only light;
   }
-  .opacity-80 {
-    opacity: 80%;
+  .opacity-70 {
+    opacity: 70%;
+  }
+  .opacity-90 {
+    opacity: 90%;
   }
   .opacity-100 {
     opacity: 100%;
@@ -2454,62 +2431,11 @@
   .shadow-amber-100 {
     --tw-shadow-color: var(--color-amber-100);
   }
-  .shadow-amber-300 {
-    --tw-shadow-color: var(--color-amber-300);
-  }
-  .shadow-amber-300\/60 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-amber-300) 60%, transparent);
-  }
-  .shadow-amber-300\/70 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-amber-300) 70%, transparent);
-  }
-  .shadow-amber-500 {
-    --tw-shadow-color: var(--color-amber-500);
-  }
-  .shadow-amber-500\/60 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-amber-500) 60%, transparent);
-  }
-  .shadow-amber-500\/80 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-amber-500) 80%, transparent);
-  }
-  .shadow-amber-700 {
-    --tw-shadow-color: var(--color-amber-700);
-  }
-  .shadow-amber-700\/60 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-amber-700) 60%, transparent);
-  }
-  .shadow-green-300 {
-    --tw-shadow-color: var(--color-green-300);
-  }
-  .shadow-green-300\/70 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-green-300) 70%, transparent);
-  }
-  .shadow-green-400 {
-    --tw-shadow-color: var(--color-green-400);
-  }
-  .shadow-green-400\/70 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-green-400) 70%, transparent);
-  }
-  .shadow-green-700 {
-    --tw-shadow-color: var(--color-green-700);
-  }
-  .shadow-green-700\/20 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 20%, transparent);
-  }
   .shadow-green-700\/30 {
     --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 30%, transparent);
   }
-  .shadow-green-700\/50 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 50%, transparent);
-  }
-  .shadow-green-700\/60 {
-    --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 60%, transparent);
-  }
   .shadow-initial {
     --tw-shadow-color: initial;
-  }
-  .shadow-purple-700 {
-    --tw-shadow-color: var(--color-purple-700);
   }
   .inset-shadow-initial {
     --tw-inset-shadow-color: initial;
@@ -2931,6 +2857,13 @@
     &:hover {
       @media (hover: hover) {
         --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 40%, transparent);
+      }
+    }
+  }
+  .hover\:shadow-green-800\/40 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow-color: color-mix(in oklab, var(--color-green-800) 40%, transparent);
       }
     }
   }
