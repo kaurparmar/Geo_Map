@@ -14,7 +14,7 @@
         color: #000000;
     }
 
-    /* remember me checkbox color changed */
+    /* remember me checkbox color changes */
     input[type="checkbox"]#remember {
         accent-color: #1bd082;
     }
@@ -134,7 +134,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
     const email = document.getElementById('email').value;
     
     if (remember) {
-        // Set cookie for 30 days if "Remember Me" is checked
+        // cookie set for 30 days if "Remember Me" is checked
         document.cookie = `remembered_email=${encodeURIComponent(email)}; max-age=${30 * 24 * 60 * 60}; path=/`;
     } else {
         

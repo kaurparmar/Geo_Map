@@ -7,13 +7,109 @@
   <title>My Account - Geo Map Reference</title>
   <link rel="stylesheet" href="../src/output.css?v=<?= time() ?>">
 </head>
-<body class="bg-[url('../pro/loginbg.png')] bg-cover bg-center bg-no-repeat text-gray-800 font-sans">
+<style>
+    
+  ::selection {
+  background-color: rgba(49, 171, 25, 0.473); 
+  color: #000000;
+}
+</style>
+<body  class="bg-[url('../pro/loginbg.png')] bg-cover bg-center bg-no-repeat text-gray-800 font-sans"></body>>
+  <nav class="top-0 bg-amber-100 shadow-md fixed w-full z-100">
+    <div class=" w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+            <!-- Logo -->
+            <div class="text-2xl font-bold text-green-600 ">Geo Map Reference</div>
 
-  <div class="max-w-lg mx-auto bg-amber-50 opacity-90 shadow-lg rounded-lg p-6 mt-24 transform transition duration-500 hover:scale-105 hover:shadow-green-700/40">
+            <!-- Navigation Links -->
+            <div class="hidden md:visible md:flex space-x-8" id="navbar">
+                <a href="../pro/index.html" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
+                    Home
+                    <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
+                    origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                </a>
+
+                <a href="../pro/route.html" class="relative text-gray-700 hover:text-green-600 text-lg font-medium transition group">
+                    Explore Map
+                    <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform
+                    origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                </a>
+
+                <a href="../pro/aboutus.html" class="relative text-gray-700 hover:text-green-600 
+                text-lg font-medium transition group">
+                    About Us
+                    <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
+                    origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                </a>
+                <a href="../pro/contactus.html" class="relative text-gray-700 hover:text-green-600 
+                text-lg font-medium transition group">
+                    Contact Us
+                    <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
+                    origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                </a>
+                <a href="../pro/Myaccount.html" class="relative text-gray-700 hover:text-green-600 
+                text-lg font-medium transition group">
+                    My Account
+                    <span class="block h-[2px] bg-gray-400 w-full scale-x-100 transition-transform 
+                    origin-left group-hover:h-[3px] group-hover:bg-green-600"></span>
+                </a>
+            </div>
+            
+            <button id="hamburger" class="md:hidden focus:outline-none cursor-pointer z-100">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+              </button>
+
+              <button  id="hamcross" class="md:hidden hidden focus:outline-none cursor-pointer z-100 ">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+              </button>
+        </div>
+        </div>
+        <div class="bg-black/30  w-full fixed h-full hidden md:hidden"  id="mobile-menu">
+        <div class="w-50 right-0  shadow-amber-100 h-full md:hidden bg-green-800 text-amber-100 fixed space-y-8 z-100">
+            
+            
+            <div class="w-full h-[10%] "></div>
+            <a href="../pro/index.html" class="text-xl text-center block relative hover:text-amber-500   origin-right font-medium " >
+                Home
+                
+            </a>
+            
+            <a href="../pro/route.html" class="text-xl  text-center block relative hover:text-amber-500   origin-right font-medium " >
+                Explore Map
+                
+            </a>
+
+            <a href="../pro/aboutus.html" class=" text-center block relative hover:text-amber-500 
+            origin-left text-xl font-medium "  >
+                About Us
+               
+            </a>
+            <a href="../pro/contactus.html" class=" text-center block relative  hover:text-amber-500 
+            origin-left text-xl font-medium " >
+                Contact Us
+                
+            </a>
+            <a href="../pro/Myaccount.html" class=" text-center block relative  hover:text-amber-500 
+            origin-left text-xl font-medium " >
+                My Account
+                
+            </a>
+        
+    </div>
+    </div>
+</nav>
+
+
+  <div class="w-[80%] max-w-lg mx-auto bg-amber-50 opacity-90 shadow-lg rounded-lg p-6 mt-24 transform transition duration-500 hover:scale-105 hover:shadow-green-700/40">
     <h2 class="text-2xl font-bold text-gray-700 text-center">My Account</h2>
 
     <!-- Change Email -->
-    <form action="../web_project/Geo_Map/pro/myaccount.php" method="post">
+    <form action="../pro/myaccount.php" method="post">
       <input type="hidden" name="change_email" value="1">
       <label class="block mt-6 text-sm font-medium text-gray-600 mb-1">Change Email</label>
       <input type="email" name="new_email" class="bg-[#eeffef] mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="Enter new email" required id="changeemail"/>
@@ -48,9 +144,10 @@
   <footer class="bg-gray-900 text-white text-center py-6 mt-10 bg-opacity-90">
     <p>&copy; 2025 Geo Map Reference. All Rights Reserved.</p>
   </footer>
-
+  <script src="../pro/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script>
+    //jquery 
     $(document).ready(function() {
         $('#changeemail, #changepassword,#currentpassword,#confirmpassword').focus(function() {
             $(this).css('background-color', '#ccf1dc');

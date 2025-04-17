@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Signup - Geo Map Reference</title>
   <link rel="stylesheet" href="../src/output.css?v=<?php echo time(); ?>"> 
-  <!-- <link rel="stylesheet" href="/src/output.css"> -->
+  
   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <style>
+
+    
+    ::selection {
+    background-color: rgba(49, 171, 25, 0.473); 
+    color: #000000;
+}
 
     .background-with-overlay {
       background-image: url('../pro/loginbg.png');
@@ -65,12 +71,12 @@
     }
 
     $(document).ready(function(){
-      // Change the color of the input box when focused
+      // Changes the color of the input box when focused
       $('#email, #password,#secretkey').focus(function() {
         $(this).css('background-color', '#ccf1dc');
       });
 
-      // Reset the color when focus is lost
+      // Resets the color when focus is lost
       $('#email, #password,#secretkey').blur(function() {
         $(this).css('background-color', '#eeffef');
       });

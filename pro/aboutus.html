@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Geo-Referenced Map Interface</title>
-    <script src="https://cdn.tailwindcss.com"></script> 
+    <!-- <script src="https://cdn.tailwindcss.com"></script>  -->
+    <link rel="stylesheet" href="../src/output.css?v=<?php echo time(); ?>">
     
 </head>
+<style>
+    
+    ::selection {
+    background-color: rgba(49, 171, 25, 0.473); 
+    color: #000000;
+}
+</style>
 <body class="relative">
 
-    <nav class="w-[100vw] relative top-0 bg-amber-100 shadow-md z-50">
+    <nav class="w-[100vw] fixed top-0 bg-amber-100 shadow-md z-50">
         <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <!-- Logo -->
@@ -68,9 +76,9 @@
     
     <div id="mobile-menu" class="fixed inset-0 z-40 hidden">
         <div class="absolute inset-0 bg-black/30" id="mobile-menu-overlay"></div>
-        <div class="absolute right-0 w-64 h-full bg-green-800 text-amber-100 shadow-lg">
+        <div class="absolute right-0 w-50  h-full bg-green-800 text-amber-100 shadow-lg">
             <div class="w-full h-[10%]"></div>
-            <a href="../pro/index.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">Home</a>
+            <a href="../pro/index.html" class="mt-10 text-xl text-center block py-4 hover:text-amber-500 font-medium">Home</a>
             <a href="../pro/route.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">Explore Map</a>
             <a href="../pro/aboutus.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">About Us</a>
             <a href="../pro/contactus.html" class="text-xl text-center block py-4 hover:text-amber-500 font-medium">Contact Us</a>
@@ -79,8 +87,8 @@
     </div>
 
     <div class="w-[100vw] relative flex flex-col items-center justify-between text-center min-h-screen bg-cover bg-center bg-fixed bg-[url('../pro/loginbg.png')]">
-        <!-- Dark Overlay for Better Contrast -->
-        <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+        
+        <div class="absolute inset-0 bg-black/70"></div>
 
         <!-- Main Content -->
         <div class="relative z-10 max-w-4xl px-8 py-16 text-amber-50 flex-grow space-y-8">
@@ -114,25 +122,25 @@
                 <h2 class="text-4xl font-bold text-amber-100 drop-shadow-lg">Meet Our Team</h2>
                 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Team Member 1 -->
-                    <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                    <div class="p-6 bg-amber-200/30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
                         <h3 class="text-xl font-bold mt-2 text-green-200">Navneet Singh</h3>
                         
                     </div>
 
                     <!-- Team Member 2 -->
-                    <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                    <div class="p-6 bg-amber-200/30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
                         <h3 class="text-xl font-bold mt-2 text-green-200">Ananya Kumari</h3>
                         
                     </div>
 
                     <!-- Team Member 3 -->
-                    <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                    <div class="p-6 bg-amber-200/30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
                         <h3 class="text-xl font-bold mt-2 text-green-200">Arminderdeep Kaur</h3>
                        
                     </div>
 
                     <!-- Team Member 4 -->
-                    <div class="p-6 bg-amber-200 bg-opacity-30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
+                    <div class="p-6 bg-amber-200/30 rounded-lg shadow-lg text-center hover:bg-opacity-40 transition-all duration-300">
                         <h3 class="text-xl font-bold mt-2 text-green-200">Jaskirat Kaur</h3>
                        
                     </div>

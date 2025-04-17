@@ -605,6 +605,9 @@
   .bottom-24 {
     bottom: calc(var(--spacing) * 24);
   }
+  .left-1 {
+    left: calc(var(--spacing) * 1);
+  }
   .left-1\/2 {
     left: calc(1/2 * 100%);
   }
@@ -622,6 +625,9 @@
   }
   .z-10 {
     z-index: 10;
+  }
+  .z-30 {
+    z-index: 30;
   }
   .z-40 {
     z-index: 40;
@@ -758,11 +764,17 @@
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
   }
+  .mt-5 {
+    margin-top: calc(var(--spacing) * 5);
+  }
   .mt-6 {
     margin-top: calc(var(--spacing) * 6);
   }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-9 {
+    margin-top: calc(var(--spacing) * 9);
   }
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
@@ -899,6 +911,12 @@
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
+  .h-7 {
+    height: calc(var(--spacing) * 7);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
+  }
   .h-16 {
     height: calc(var(--spacing) * 16);
   }
@@ -932,6 +950,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
@@ -941,14 +962,29 @@
   .w-6 {
     width: calc(var(--spacing) * 6);
   }
+  .w-7 {
+    width: calc(var(--spacing) * 7);
+  }
+  .w-8 {
+    width: calc(var(--spacing) * 8);
+  }
   .w-50 {
     width: calc(var(--spacing) * 50);
   }
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
+  .w-80 {
+    width: calc(var(--spacing) * 80);
+  }
   .w-\[80\%\] {
     width: 80%;
+  }
+  .w-\[90\%\] {
+    width: 90%;
+  }
+  .w-\[100\] {
+    width: 100;
   }
   .w-\[100vw\] {
     width: 100vw;
@@ -1072,6 +1108,10 @@
   .translate-full {
     --tw-translate-x: 100%;
     --tw-translate-y: 100%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-x-1 {
+    --tw-translate-x: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-x-1\/2 {
@@ -1710,8 +1750,14 @@
   .bg-amber-200 {
     background-color: var(--color-amber-200);
   }
+  .bg-amber-200\/30 {
+    background-color: color-mix(in oklab, var(--color-amber-200) 30%, transparent);
+  }
   .bg-amber-300 {
     background-color: var(--color-amber-300);
+  }
+  .bg-amber-500 {
+    background-color: var(--color-amber-500);
   }
   .bg-amber-500\/80 {
     background-color: color-mix(in oklab, var(--color-amber-500) 80%, transparent);
@@ -1722,6 +1768,9 @@
   .bg-black {
     background-color: var(--color-black);
   }
+  .bg-black\/20 {
+    background-color: color-mix(in oklab, var(--color-black) 20%, transparent);
+  }
   .bg-black\/30 {
     background-color: color-mix(in oklab, var(--color-black) 30%, transparent);
   }
@@ -1730,6 +1779,9 @@
   }
   .bg-black\/50 {
     background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
+  }
+  .bg-black\/70 {
+    background-color: color-mix(in oklab, var(--color-black) 70%, transparent);
   }
   .bg-blue-600 {
     background-color: var(--color-blue-600);
@@ -1802,6 +1854,12 @@
   }
   .bg-\[url\(\'\.\.\/pro\/loginbg\.png\'\)\] {
     background-image: url('../pro/loginbg.png');
+  }
+  .bg-\[url\(\'\.\/pro\/loginbg\.png\'\)\] {
+    background-image: url('./pro/loginbg.png');
+  }
+  .bg-\[url\(\'\/pro\/loginbg\.png\'\)\] {
+    background-image: url('/pro/loginbg.png');
   }
   .bg-none {
     background-image: none;
@@ -2052,6 +2110,9 @@
   }
   .font-sans {
     font-family: var(--font-sans);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -2381,6 +2442,12 @@
   .scheme-only-light {
     color-scheme: only light;
   }
+  .opacity-20 {
+    opacity: 20%;
+  }
+  .opacity-40 {
+    opacity: 40%;
+  }
   .opacity-70 {
     opacity: 70%;
   }
@@ -2430,6 +2497,9 @@
   }
   .shadow-amber-100 {
     --tw-shadow-color: var(--color-amber-100);
+  }
+  .shadow-green-700 {
+    --tw-shadow-color: var(--color-green-700);
   }
   .shadow-green-700\/30 {
     --tw-shadow-color: color-mix(in oklab, var(--color-green-700) 30%, transparent);
@@ -2899,6 +2969,16 @@
     &:focus {
       --tw-outline-style: none;
       outline-style: none;
+    }
+  }
+  .max-md\:w-\[80\%\] {
+    @media (width < 48rem) {
+      width: 80%;
+    }
+  }
+  .max-md\:w-\[80\] {
+    @media (width < 48rem) {
+      width: 80;
     }
   }
   .sm\:flex-row {
