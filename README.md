@@ -27,8 +27,7 @@ Backend : PHP
 
 🔹 Usage
 
-Open the website directly in your browser via GitHub Pages:
-https://your-username.github.io/geo-map-reference/
+Open the website directly in your browser via GitHub 
 
 Use the search bar to find any location.
 
